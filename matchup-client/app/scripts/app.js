@@ -9,25 +9,37 @@
  * Main module of the application.
  */
 angular
-  .module('matchupApp', [
+.module('matchupApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+])
+.config(function ($routeProvider) {
+$routeProvider
+    .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .when('/about', {
+    })
+    .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'AuthCtrl'
+    })
+    .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'AuthCtrl'
+    })
+    .when('/create-game', {
+        templateUrl: 'views/create-game.html',
+        controller: 'GameCtrl'
+    })
+    .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
-      })
-      .otherwise({
+    })
+    .otherwise({
         redirectTo: '/'
-      });
-  });
+    });
+});
