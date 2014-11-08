@@ -14,7 +14,7 @@ public class CreateUserCommand {
     private String name;
 
     @NotEmpty
-    private String passwords;
+    private String password;
 
     @NotEmpty
     private String city;
@@ -36,14 +36,6 @@ public class CreateUserCommand {
         this.name = name;
     }
 
-    public String getPasswords() {
-        return passwords;
-    }
-
-    public void setPasswords(String passwords) {
-        this.passwords = passwords;
-    }
-
     public String getCity() {
         return city;
     }
@@ -54,6 +46,14 @@ public class CreateUserCommand {
 
     public Integer getAge() {
         return age;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setAge(Integer age) {

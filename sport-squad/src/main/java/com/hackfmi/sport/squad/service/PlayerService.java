@@ -11,7 +11,6 @@ import com.hackfmi.sport.squad.web.controller.command.CreateUserCommand;
 public interface PlayerService {
 
     public PlayerDto findByEmail(String email);
-
     public PlayerDto createPlayer(CreateUserCommand createUserCommand);
 	public List<PlayerDto> findByNameLike(String namePattern);
 }

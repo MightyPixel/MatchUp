@@ -37,7 +37,8 @@ public class PlayerServiceImpl implements PlayerService {
         newPlayer.setAge(createUserCommand.getAge());
         newPlayer.setCity(createUserCommand.getCity());
         newPlayer.setName(createUserCommand.getName());
-        newPlayer.setPassword(createUserCommand.getPasswords());
+        newPlayer.setEmail(createUserCommand.getEmail());
+        newPlayer.setPassword(createUserCommand.getPassword());
 
         newPlayer = playerRepository.save(newPlayer);
         return playerAssembler.toDto(newPlayer);
