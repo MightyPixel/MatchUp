@@ -19,13 +19,13 @@ import com.hackfmi.sport.squad.service.GameFieldService;
  * Created by inakov on 14-11-8.
  */
 @RestController
-@RequestMapping("/service")
+@RequestMapping("/service/fields")
 public class GameFieldController {
 
     @Autowired
     private GameFieldService gameFieldService;
     
-    @RequestMapping(method = RequestMethod.GET, value = "/gamefield", params = {"city", "page"})
+    @RequestMapping(method = RequestMethod.GET, value = "/get", params = {"city", "page"})
     public List<GameFieldDto> getGameFieldsPage(@RequestParam String city, @RequestParam int page) {
     	List<GameFieldDto> pageOfGameFields = gameFieldService.getGameFieldsPage(city, page, 5, new Sort(Direction.DESC, "rating"));
     	return pageOfGameFields;

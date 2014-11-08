@@ -1,6 +1,6 @@
 package com.hackfmi.sport.squad.service;
 
-import com.hackfmi.sport.squad.domain.Game;
+import com.hackfmi.sport.squad.dto.GameDto;
 import com.hackfmi.sport.squad.web.controller.command.CreateGameCommand;
 
 /**
@@ -8,6 +8,6 @@ import com.hackfmi.sport.squad.web.controller.command.CreateGameCommand;
  */
 public interface GameService {
 
-    public Game findGameById(String id);
-    public Game createGame(CreateGameCommand createGameCommand);
+    public GameDto findGameById(String id);
+    public GameDto createGame(CreateGameCommand createGameCommand);
 }
