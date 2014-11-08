@@ -15,7 +15,7 @@ import org.springframework.stereotype.Controller;
 import com.hackfmi.sport.squad.Application;
 
 @Configuration
-@EnableMongoRepositories()
+@EnableMongoRepositories(basePackages = "com.hackfmi.sport.squad.repository")
 @ComponentScan(basePackageClasses = Application.class, excludeFilters = @Filter({Controller.class, Configuration.class}))
 class ApplicationConfig  extends AbstractMongoConfiguration {
 
