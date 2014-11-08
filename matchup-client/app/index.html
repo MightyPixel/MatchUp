@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="matchupApp" >
 <head>
 <meta charset="utf-8">
 <title>MatchUP</title>
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="styles/home.css">
 <!-- endbuild -->
 </head>
-<body ng-app="matchupApp">
+<body ng-controller="MainCtrl">
 <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -24,15 +24,25 @@
 <div class="container">
     <div class="header">
         <ul class="nav nav-pills pull-right">
-            <li><a ng-href="#/login" ng-show="!isUserLogged()">Login</a></li>
-            <li><a ng-href="#/register" ng-show="!isUserLogged()">Register</a></li>
-            <li><a ng-href="#/home" ng-show="isUserLogged()">Home</a></li>
-            <li><a ng-href="#/create-game" ng-show="isUserLogged()">Create Game</a></li>
-            <li><a ng-href="#/about">About</a></li>
-            <li class="dropdown">
+            <li ng-class="{ 'active': activeTab == 'login' }">
+                <a ng-href="#/login" ng-show="!isUserLogged" ng-click="setActiveTab('login')">Login</a>
+            </li>
+            <li ng-class="{ 'active': activeTab == 'register' }">
+                <a ng-href="#/register" ng-show="!isUserLogged" ng-click="setActiveTab('register')">Register</a>
+            </li>
+            <li ng-class="{ 'active': activeTab == 'home' }">
+                <a ng-href="#/home" ng-show="isUserLogged" ng-click="setActiveTab('home')">Home</a>
+            </li>
+            <li ng-class="{ 'active': activeTab == 'create-game' }">
+                <a ng-href="#/create-game" ng-show="isUserLogged" ng-click="setActiveTab('create-game')">Create Game</a>
+            </li>
+            <li ng-class="{ 'active': activeTab == 'about' }">
+                <a ng-href="#/about"  ng-click="setActiveTab('about')">About</a>
+            </li>
+            <li ng-show="isUserLogged" class="dropdown" ng-class="{ 'active': activeTab == 'profile' }">
                 <a class="dropdown-toggle" data-toggle="dropdown">Profile<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a ng-href="#/profile">View Profile</a></li>
+                    <li><a ng-href="#/profile" ng-click="setActiveTab('profile')">View Profile</a></li>
                     <li><a ng-click="logout()">Logout</a></li>
                 </ul>
             </li>
@@ -112,6 +122,7 @@ ga('send', 'pageview');
 <script src="scripts/controllers/home.js"></script>
 <script src="scripts/controllers/profile.js"></script>
 <script src="scripts/directives/timeline-item.js"></script>
+<script src="scripts/controllers/team.js"></script>
 <!-- endbuild -->
 </body>
 </html>
