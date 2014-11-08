@@ -1,5 +1,7 @@
 <h1>Create Game</h1>
+
 <hr>
+
 <div ng-controller="GameCtrl">
 
 	<div>
@@ -15,16 +17,7 @@
         <div class="row">
             <div class="col-md-6">
                 <p class="input-group">
-                <input type="text"
-                        class="form-control"
-                        datepicker-popup="dd-MMMM-yyyy"
-                        ng-model="matchDate"
-                        is-open="opened"
-                        datepicker-options="dateOptions"
-                        max-date="'06-2030'"
-                        ng-required="true"
-                        show-button-bar="false"
-                        autocomplete="off"/>
+                <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng-model="currentRole.startDate" is-open="opened" datepicker-options="dateOptions" max-date="'06-2030'" ng-required="true" show-button-bar="false" autocomplete="off"/>
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
@@ -33,7 +26,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
 	<div>
 		<h4>The Time:</h4>
 		<timepicker class="time" hour-step="1" minute-step="1" show-meridian="false" ng-model="mytime" ng-change="changed()"></timepicker>
@@ -92,59 +84,5 @@
 
 	<button type="button" class="btn btn-primary btn-lg">Create</button>
 	
-=======
-    <h4>The Time:</h4>
-    <timepicker class="time"
-                hour-step="1"
-                minute-step="10"
-                show-meridian="false"
-                ng-model="matchTime"
-                ng-change="changed()">
-    </timepicker>
-
-    <h4>The Place:</h4>
-    <input type="text" ng-model="place" typeahead="place for place in places | filter:$viewValue | limitTo:8" class="form-control">
-    <br>
-    <tabset justified="true">
-        <tab heading="Casual Game">
-            <h4>The Team:</h4>
-            <input type="text" ng-model="team" typeahead="team for team in teams | filter:$viewValue | limitTo:8" class="form-control">
-
-            <h4>The Oponent:</h4>
-            <input type="text" ng-model="opponent" typeahead="oponent for oponent in oponents | filter:$viewValue | limitTo:8" class="form-control">
-            <br>
-
-            <div>
-                <img src="../images/football-field.jpg" class="img-responsive" alt="Responsive image">
-            </div>
-            <br>
-            <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><i class="glyphicon glyphicon-user"></i></button>
-            <div collapse="isCollapsed">
-                <input type="text" ng-model="player" typeahead="player for player in players | filter:$viewValue | limitTo:8" class="form-control">
-            </div>
-        </tab>
-
-        <tab heading="Ranked Game">
-            <h4>The Team:</h4>
-            <input type="text" ng-model="team" typeahead="team for team in teams | filter:$viewValue | limitTo:8" class="form-control">
-
-            <h4>The Oponent:</h4>
-            <input type="text" ng-model="oponent" typeahead="oponent for oponent in oponents | filter:$viewValue | limitTo:8" class="form-control">
-            <br>
-            <div>
-                <img src="../images/football-field.jpg" class="img-responsive" alt="Responsive image">
-            </div>
-            <br>
-            <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><i class="glyphicon glyphicon-user"></i></button>
-            <div collapse="isCollapsed">
-                <input type="text" ng-model="player" typeahead="player for player in players | filter:$viewValue | limitTo:8" class="form-control">
-            </div>
-
-            </tab>
-    </tabset>
-    <hr>
-    <br>
-    <button type="button" class="btn btn-primary btn-lg" ng-click="createGame()">Create</button>
->>>>>>> 4a942bed845f5c9ab8ce2f25c6d834adf6cf8f4c
 </div>
 

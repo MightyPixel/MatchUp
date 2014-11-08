@@ -12,20 +12,11 @@
 angular.module('matchupApp')
 .controller('GameCtrl', function ($scope) {
 
-    $scope.msg = "hello";
-
-    $scope.updateMsg = function() {
-        console.log('CALLED');
-        $scope.msg = "Hiii";
-    }
-
     $scope.today = function() {
         $scope.dt = new Date();
     };
 
-
     $scope.mytime = new Date();
-
     $scope.hstep = 1;
     $scope.mstep = 15;
 
@@ -83,22 +74,13 @@ angular.module('matchupApp')
 
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
-
-    $scope.teams = ['My awesome team', 'The Penguins', 'Stars', 'Little stars', 'Big Bad wolves'];
-    $scope.oponents = ['Some team', 'The Cobras', 'The Stones', 'Flying Monkeys', 'Metallica', 'The Guys'];
+	
+	$scope.teams = ['My awesome team', 'The Penguins', 'Stars', 'Little stars', 'Big Bad wolves'];
+	$scope.oponents = ['Some team', 'The Cobras', 'The Stones', 'Flying Monkeys', 'Metallica', 'The Guys'];
   // Any function returning a promise object can be used to load values asynchronously
-    $scope.isCollapsed = true;
-    $scope.players = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
-    $scope.places = ['Sofia', 'Plovdiv', 'Varna', 'Burgas']
-
-    $scope.createGame = function() {
-        console.log((new Date($scope.matchDate)).toUTCString());
-        console.log($scope.matchTime);
-        console.log($scope.sport);
-        console.log($scope.team);
-        console.log($scope.opponent);
-        console.log($scope.isRanked);
-        console.log($scope.place);
-    }
+  
+	$scope.isCollapsed = true;
+	$scope.players = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
+	$scope.places = ['Sofia', 'Plovdiv', 'Varna', 'Burgas']
 });
 
