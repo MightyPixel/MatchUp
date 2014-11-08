@@ -10,7 +10,6 @@
 angular.module('matchupApp')
   .controller('TeamCtrl', function ($scope) {
     $scope.availablePlayers = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
-	/*$scope.selectedPlayers = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];*/
 	
 	$scope.selectedPlayers = [];
 	
