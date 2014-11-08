@@ -1,6 +1,7 @@
 package com.hackfmi.sport.squad.web.controller;
 
 import com.hackfmi.sport.squad.domain.Player;
+import com.hackfmi.sport.squad.dto.PlayerDto;
 import com.hackfmi.sport.squad.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,8 +23,8 @@ public class PlayerController {
     private PlayerService playerService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/player/{email}")
-    public ResponseEntity<Player> findByEmail(@PathVariable String email){
-        return new ResponseEntity<Player>(playerService.findByEmail(email), HttpStatus.OK);
+    public ResponseEntity<PlayerDto> findByEmail(@PathVariable String email){
+        return new ResponseEntity<PlayerDto>(playerService.findByEmail(email), HttpStatus.OK);
     }
 
 }

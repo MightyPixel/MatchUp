@@ -22,9 +22,7 @@ angular.module('matchupApp')
 
     function notifyObservers(user) {
         _.each(observerCallbacks, function(observer){
-            if (!!(user)) {
-                observer.callback(user);
-            }
+            observer.callback(user);
         });
     }
 
@@ -66,6 +64,10 @@ angular.module('matchupApp')
                     callback: callback
                 });
             }
+        },
+
+        logout: function() {
+            setUser();
         },
     };
 });

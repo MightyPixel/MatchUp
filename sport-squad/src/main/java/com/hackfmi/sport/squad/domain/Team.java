@@ -23,6 +23,7 @@ public class Team {
 
     @DBRef
     private Player captain;
+    private List<ScheduleInterval> schedule = new ArrayList<>();
     private List<ObjectId> playersIds = new ArrayList<>();
 
     //TODO: add team schedule
@@ -59,6 +60,14 @@ public class Team {
 
     public void setPlayersIds(List<ObjectId> playersIds) {
         this.playersIds = playersIds;
+    }
+
+    public List<ScheduleInterval> getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(List<ScheduleInterval> schedule) {
+        this.schedule = schedule;
     }
 
     public Double getRating() {
