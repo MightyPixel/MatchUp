@@ -23,6 +23,7 @@ public class PlayerAssembler extends BaseAssembler<Player, PlayerDto> {
     @Override
     protected void convertToDto(Player player, PlayerDto playerDto) {
         playerDto.setAge(player.getAge());
+        playerDto.setPassword(player.getPassword());
         playerDto.setCity(player.getCity());
         playerDto.setEmail(player.getEmail());
         playerDto.setName(player.getName());
@@ -32,6 +33,7 @@ public class PlayerAssembler extends BaseAssembler<Player, PlayerDto> {
     @Override
     protected void convertToDocument(Player player, PlayerDto playerDto) {
         player.setAge(playerDto.getAge());
+        player.setPassword(playerDto.getPassword());
         player.setCity(playerDto.getCity());
         player.setEmail(playerDto.getEmail());
         player.setName(playerDto.getName());

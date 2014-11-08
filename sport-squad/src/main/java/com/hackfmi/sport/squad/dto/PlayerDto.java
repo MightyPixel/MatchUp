@@ -1,6 +1,7 @@
 package com.hackfmi.sport.squad.dto;
 
 import org.bson.types.ObjectId;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
@@ -11,6 +12,8 @@ public class PlayerDto implements BaseDto{
     private String id;
 
     private String email;
+    @JsonIgnore
+    private String password;
     private String name;
     private Integer age;
     private String city;
@@ -53,5 +56,13 @@ public class PlayerDto implements BaseDto{
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

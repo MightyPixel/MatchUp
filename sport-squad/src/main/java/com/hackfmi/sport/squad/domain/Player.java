@@ -16,6 +16,8 @@ public class Player implements  BaseDocument{
 
     @Indexed(unique = true)
     private String email;
+    private String password;
+
     @Indexed
     private String name;
     private Integer age;
@@ -61,5 +63,13 @@ public class Player implements  BaseDocument{
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
