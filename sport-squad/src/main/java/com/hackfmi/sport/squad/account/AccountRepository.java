@@ -11,13 +11,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Transactional(readOnly = true)
 public class AccountRepository {
 	
-	@PersistenceContext
+//	@PersistenceContext
 	private EntityManager entityManager;
 	
 	@Inject
 	private PasswordEncoder passwordEncoder;
 	
-	@Transactional
+//	@Transactional
 	public Account save(Account account) {
 		account.setPassword(passwordEncoder.encode(account.getPassword()));
 		entityManager.persist(account);
