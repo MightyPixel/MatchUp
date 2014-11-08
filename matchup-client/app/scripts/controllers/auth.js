@@ -21,15 +21,9 @@ angular.module('matchupApp')
         $location.url('/home');
     };
 
-    $scope.checkInput = function() {
-        if ($scope.username == 'Ogi') {
-            $scope.isCoolUserName = true;
-        } else {
-            $scope.isCoolUserName = false;
-        }
-    };
+    $scope.register = function() {
+        console.log($scope.username, $scope.password, $scope.firstName, $scope.lastName, $scope.city)
 
-    $scope.register = function(){
     }
 
 });
