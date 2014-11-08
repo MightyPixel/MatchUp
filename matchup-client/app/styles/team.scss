@@ -1,5 +1,25 @@
 .team-page {
-	.select-day {
-		width: 50%;
+	
+	
+	
+	#wrapper {
+    width: 100%;
+    overflow: hidden; /* add this to contain floated children */
+	}
+	#select-day {
+		width: 330px;
+		float:left; /* add this */
+		margin: 33px 33px 33px 33px;
+		 
+	}
+	#select-time {
+		float: left; /* add this */
+	}
+	#add-button {
+		float: left; /* add this */
+		margin: 33px 33px 33px 33px
+	}
+	#remove-button {
+		float: left; /* add this */
 	}
 }
