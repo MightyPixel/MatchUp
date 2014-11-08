@@ -1,5 +1,7 @@
 package com.hackfmi.sport.squad.service.impl;
 
+import java.util.List;
+
 import com.hackfmi.sport.squad.assembler.PlayerAssembler;
 import com.hackfmi.sport.squad.domain.Player;
 import com.hackfmi.sport.squad.dto.PlayerDto;
@@ -40,4 +42,10 @@ public class PlayerServiceImpl implements PlayerService {
         newPlayer = playerRepository.save(newPlayer);
         return playerAssembler.toDto(newPlayer);
     }
+
+	@Override
+	public List<PlayerDto> findByNameLike(String namePattern) {
+		List<Player> playerList = playerRepository.findByNameLike(namePattern);
+		return playerAssembler.toDtos(playerList);
+	}
 }

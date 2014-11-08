@@ -1,1 +1,24 @@
 <h1>Create a team</h1>
+<div ng-controller="TeamCtrl">
+	
+
+    <h4>The Name:</h4>
+    <input type="text" ng-model="name" ng-change="" class="form-control" autofocus placeholder="Team Name"/>
+
+    <h4>Add Player:</h4>
+	<input type="text" ng-model="newPlayer" typeahead="player for player in availablePlayers | filter:$viewValue | limitTo:8" class="form-control" autofocus placeholder="Player Name"
+typeahead-on-select="selectPlayer(newPlayer);">
+
+	<h4>The Players:</h4>
+	<div>
+		<ul>
+			<li ng-repeat="selctedPlayer in selectedPlayers">{{selctedPlayer}} </li>
+		</ul>
+	<div>
+	
+	
+
+	
+	
+	
+	</div>
