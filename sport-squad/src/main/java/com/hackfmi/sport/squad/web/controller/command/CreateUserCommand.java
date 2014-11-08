@@ -1,30 +1,24 @@
-package com.hackfmi.sport.squad.dto;
+package com.hackfmi.sport.squad.web.controller.command;
 
-import org.bson.types.ObjectId;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Created by inakov on 14-11-8.
  */
-public class PlayerDto implements BaseDto{
-    private String id;
+public class CreateUserCommand {
 
+    @Email
+    @NotEmpty
     private String email;
-    @JsonIgnore
-    private String password;
     private String name;
-    private Integer age;
+
+    @NotEmpty
+    private String password;
+
+    @NotEmpty
     private String city;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    private Integer age;
 
     public String getEmail() {
         return email;
@@ -42,14 +36,6 @@ public class PlayerDto implements BaseDto{
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String getCity() {
         return city;
     }
@@ -58,11 +44,19 @@ public class PlayerDto implements BaseDto{
         this.city = city;
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }
