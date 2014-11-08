@@ -9,9 +9,16 @@
  */
 angular.module('matchupApp')
   .controller('TeamCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.availablePlayers = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
+	/*$scope.selectedPlayers = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];*/
+	
+	$scope.selectedPlayers = [];
+	
+	$scope.selectPlayer = function(player){
+		if (!_.find($scope.selectedPlayers, function(plr) { plr == player; })) {
+			 $scope.selectedPlayers.push(player);
+		}
+	}
+
+	
   });

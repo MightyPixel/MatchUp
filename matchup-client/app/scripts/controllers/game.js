@@ -90,6 +90,5 @@ angular.module('matchupApp')
   
 	$scope.isCollapsed = true;
 	$scope.players = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
-	
 });
 
