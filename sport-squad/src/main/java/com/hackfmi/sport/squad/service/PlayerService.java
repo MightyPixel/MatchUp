@@ -1,6 +1,7 @@
 package com.hackfmi.sport.squad.service;
 
-import com.hackfmi.sport.squad.domain.Player;
+import java.util.List;
+
 import com.hackfmi.sport.squad.dto.PlayerDto;
 
 /**
@@ -9,4 +10,5 @@ import com.hackfmi.sport.squad.dto.PlayerDto;
 public interface PlayerService {
 
     public PlayerDto findByEmail(String email);
+	public List<PlayerDto> findByNameLike(String namePattern);
 }

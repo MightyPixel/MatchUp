@@ -1,21 +1,11 @@
-package com.hackfmi.sport.squad.domain;
+package com.hackfmi.sport.squad.dto;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-/**
- * Created by inakov on 14-11-8.
- */
-@Document
-public class GameField {
-
-	@Id
-	private ObjectId id;
-	@Indexed
+public class GameFieldDto implements BaseDto {
+	
+	private String id;
+	
 	private String name;
-	@Indexed
 	private String city;
 	private String description;
 
@@ -24,11 +14,13 @@ public class GameField {
 	
     private String imgPath;
 
-	public ObjectId getId() {
+	@Override
+	public String getId() {
 		return id;
 	}
 
-	public void setId(ObjectId id) {
+	@Override
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -79,5 +71,5 @@ public class GameField {
 	public void setImgPath(String imgPath) {
 		this.imgPath = imgPath;
 	}
-
+	
 }
