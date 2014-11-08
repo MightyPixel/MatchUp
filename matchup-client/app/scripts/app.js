@@ -86,6 +86,10 @@ angular
       templateUrl: 'views/profile.html',
       controller: 'ProfileCtrl'
     })
+    .when('/team', {
+      templateUrl: 'views/team.html',
+      controller: 'TeamCtrl'
+    })
     .otherwise({
         redirectTo: '/'
     });
