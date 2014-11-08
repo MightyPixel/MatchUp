@@ -12,8 +12,12 @@ angular.module('matchupApp')
 
     $scope.isUserLogged = false;
 
-
     auth.registerObserverCallback('updateMain', function() {
         $scope.isUserLogged = auth.isUserLogged();
-    })
+    });
+
+    $scope.logout = function() {
+        auth.logout();
+    }
+
 });
