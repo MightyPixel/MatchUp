@@ -10,4 +10,11 @@
 angular.module('matchupApp')
 .controller('GameCtrl', function ($scope) {
 
+	$scope.msg = "hello";
+
+	$scope.updateMsg = function() {
+		console.log('CALLED');
+		$scope.msg = "Hiii";
+	}
+
 });
