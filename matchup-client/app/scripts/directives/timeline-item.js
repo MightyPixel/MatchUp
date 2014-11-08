@@ -7,11 +7,18 @@
  * # timelineItem
  */
 angular.module('matchupApp')
-  .directive('timelineItem', function () {
+.directive('timelineItem', function () {
     return {
-      templateUrl: 'views/directives/timeline-item.html',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-      }
+        scope: {
+            event: '='
+        },
+        templateUrl: 'views/directives/timeline-item.html',
+        restrict: 'E',
+        link: function postLink(scope, element, attrs) {
+
+        },
+        controller: function($scope) {
+
+        }
     };
-  });
+});
