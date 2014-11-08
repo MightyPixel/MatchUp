@@ -14,26 +14,21 @@ angular.module('matchupApp')
     function setUser(newUser) {
         var oldUser = user;
         user = newUser;
-        $rootScope.currentLoggedUser = user;
 
-        var userChanged = !angular.equals(oldUser, user);
-        if (userChanged) {
-            notifyObservers();
-        }
+        notifyObservers(user);
     }
 
     var observerCallbacks = [];
 
-    function notifyObservers() {
-        angular.forEach(observerCallbacks, function(observer){
-            if (!!user || observer.notifyIfNull) {
-                observer.callback();
+    function notifyObservers(user) {
+        _.each(observerCallbacks, function(observer){
+            if (!!(user)) {
+                observer.callback(user);
             }
         });
     }
 
     function updateUserResponse(response) {
-        // TODO
         setUser(response);
     }
 
@@ -41,19 +36,23 @@ angular.module('matchupApp')
         return $q.reject(response.data);
     }
 
-    function getIsUserLogged() {
+    function isUserLogged() {
         return !!(user);
     }
 
     return {
-        getIsUserLogged: getIsUserLogged,
+        getIsUserLogged: function() { isUserLogged() },
 
         loginUser: function(username, password) {
-            return loginServiceProxy.login(username, password).then(updateUserResponse, handleServiceError);
+            // return loginServiceProxy.login(username, password).then(updateUserResponse, handleServiceError);
+            updateUserResponse({
+                'firstName': 'Rupert',
+                'lastName': 'Bear',
+            });
         },
 
         getHomeState: function() {
-            if (!getIsUserLogged()) {
+            if (!isUserLogged()) {
                 return {name: 'login'};
             } else {
                 return {name: 'unauthorized'};

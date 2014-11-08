@@ -8,16 +8,21 @@
  * Controller of the matchupApp
  */
 angular.module('matchupApp')
-.controller('MainCtrl', function ($scope, auth) {
+.controller('MainCtrl', function ($scope, $location, auth) {
 
     $scope.isUserLogged = false;
 
-    auth.registerObserverCallback('updateMain', function() {
-        $scope.isUserLogged = auth.isUserLogged();
+    auth.registerObserverCallback('updateMain', function(user) {
+        $scope.isUserLogged = (user != null);
     });
 
     $scope.logout = function() {
         auth.logout();
+    };
+
+    $scope.setActiveTab = function(tab) {
+        $scope.activeTab = tab;
+        $location.url('/' + tab);
     }
 
 });

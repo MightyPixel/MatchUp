@@ -18,6 +18,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'config',
+    'ui.bootstrap'
 ])
 .factory('authHttpResponseInterceptor', function($q, $location, $injector){
     function redirectToLogin() {
@@ -59,7 +60,6 @@ angular
     $routeProvider
     .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
     })
     .when('/login', {
         templateUrl: 'views/login.html',
@@ -73,6 +73,10 @@ angular
         templateUrl: 'views/register.html',
         controller: 'AuthCtrl'
     })
+    .when('/create-team', {
+        templateUrl: 'views/create-team.html',
+        controller: 'GameCtrl'
+    })
     .when('/create-game', {
         templateUrl: 'views/create-game.html',
         controller: 'GameCtrl'
@@ -84,6 +88,10 @@ angular
     .when('/profile', {
       templateUrl: 'views/profile.html',
       controller: 'ProfileCtrl'
+    })
+    .when('/team', {
+      templateUrl: 'views/team.html',
+      controller: 'TeamCtrl'
     })
     .otherwise({
         redirectTo: '/'
