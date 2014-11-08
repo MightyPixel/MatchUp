@@ -1,59 +1,54 @@
 <h1>Create Game</h1>
-<!--
-baba {{ msg }}
-
-<button ng-click="updateMsg()">btn</button>
--->
 <div ng-controller="GameCtrl">
 
-<div>
-    <h4>Select a date:</h4>
-    <div class="row">
-        <div class="col-md-6">
-            <p class="input-group">
-              <!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />-->
-			  <input type="text" class="form-control" datepicker-popup="MMM-yyyy" ng-model="currentRole.startDate" is-open="opened" datepicker-options="dateOptions" max-date="'06-2030'" ng-required="true" show-button-bar="false" autocomplete="off"/>
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-            </p>
+    <div>
+        <h4>Select a date:</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="input-group">
+                <!--<input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />-->
+                <input type="text" class="form-control" datepicker-popup="MMM-yyyy" ng-model="currentRole.startDate" is-open="opened" datepicker-options="dateOptions" max-date="'06-2030'" ng-required="true" show-button-bar="false" autocomplete="off"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+                </p>
+            </div>
         </div>
     </div>
-</div>
 
 
-<timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+    <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
 
-  <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
+    <pre class="alert alert-info">Time is: {{mytime | date:'shortTime' }}</pre>
 
-  <div class="row"> 
-    <div class="col-xs-6">
-        Hours step is:
-      <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+    <div class="row"> 
+        <div class="col-xs-6">
+            Hours step is:
+            <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+        </div>
+        <div class="col-xs-6">
+            Minutes step is:
+            <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
+        </div>
     </div>
-    <div class="col-xs-6">
-        Minutes step is:
-      <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
-    </div>
-  </div>
 
-  <hr>
+    <hr>
 
-  <button class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
-  <button class="btn btn-default" ng-click="update()">Set to 14:00</button>
-  <button class="btn btn-danger" ng-click="clear()">Clear</button>
+    <button class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
+    <button class="btn btn-default" ng-click="update()">Set to 14:00</button>
+    <button class="btn btn-danger" ng-click="clear()">Clear</button>
 
 
 
 
 
-<h4>Select a place:</h4>
-<select class="form-control">
-  <option>Sofia</option>
-  <option>Plovdiv</option>
-  <option>Varna</option>
-  <option>Burgas</option>
-</select>
+    <h4>Select a place:</h4>
+    <select class="form-control">
+        <option>Sofia</option>
+        <option>Plovdiv</option>
+        <option>Varna</option>
+        <option>Burgas</option>
+    </select>
 
 
 

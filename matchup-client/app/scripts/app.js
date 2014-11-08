@@ -18,6 +18,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'config',
+    'ui.bootstrap'
 ])
 .factory('authHttpResponseInterceptor', function($q, $location, $injector){
     function redirectToLogin() {
