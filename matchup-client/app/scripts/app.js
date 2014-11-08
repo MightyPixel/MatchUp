@@ -60,7 +60,6 @@ angular
     $routeProvider
     .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
     })
     .when('/login', {
         templateUrl: 'views/login.html',
@@ -73,6 +72,10 @@ angular
     .when('/register', {
         templateUrl: 'views/register.html',
         controller: 'AuthCtrl'
+    })
+    .when('/create-team', {
+        templateUrl: 'views/create-team.html',
+        controller: 'GameCtrl'
     })
     .when('/create-game', {
         templateUrl: 'views/create-game.html',

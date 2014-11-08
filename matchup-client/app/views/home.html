@@ -1,9 +1,14 @@
-<h1>Home</h1>
-<a style="margin-top: 20px;" class="btn btn-lg btn-primary btn-block" ng-href="/#/create-game">Create Game</a>   
+<div class="home-page">
+    <div class="btn-group create-menu">
+        <a type="button" class="btn btn-lg btn-primary" ng-href="/#/create-team">Create Team</a>
+        <a type="button" class="btn btn-lg btn-info" ng-href="/#/create-game">Create Game</a>
+    </div>
 
-<ul class="timeline">
-    <li ng-repeat="event in events">
-        <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-        <timeline-item class="timeline-panel" event="event"></timeline-item>
-    </li>
-</ul>
+    <ul class="timeline">
+        <li ng-repeat="event in events">
+            <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+            <timeline-item class="timeline-panel" event="event"></timeline-item>
+        </li>
+    </ul>
+
+</div>
