@@ -1,24 +1,42 @@
-<h1>Create a team</h1>
-<div ng-controller="TeamCtrl">
-	
+<div class="team-page" ng-controller="TeamCtrl">
+	<h1>Create a team</h1>
 
-    <h4>The Name:</h4>
-    <input type="text" ng-model="name" ng-change="" class="form-control" autofocus placeholder="Team Name"/>
-
-    <h4>Add Player:</h4>
-	<input type="text" ng-model="newPlayer" typeahead="player for player in availablePlayers | filter:$viewValue | limitTo:8" class="form-control" autofocus placeholder="Player Name"
-typeahead-on-select="selectPlayer(newPlayer);">
-
-	<h4>The Players:</h4>
 	<div>
+		<h4>The Name:</h4>
+		<input type="text" ng-model="name" ng-change="" class="form-control" autofocus placeholder="Team Name"/>
+	</div>
+
+	<div>
+		<h4>Free Time:</h4>
+		<div class="play-dates">
+			<div class="row" ng-repeat="playDate in playDates">
+				<select class="form-control select-day" ng-model="playDate.date">
+				  <option>Monday</option>
+				  <option>Tuesday</option>
+				  <option>Wednesday</option>
+				  <option>Thursday</option>
+				  <option>Friday</option>
+				  <option>Saturday</option>
+				  <option>Sunday</option>
+				</select>
+				<timepicker class="time" hour-step="1" minute-step="1" show-meridian="false" ng-model="playDate.time" ng-change="changed()"></timepicker>
+				<button type="button" class="btn btn-success" ng-hide="!playDate" ng-click="addPlayDate(playDate)"><bold>+</bold></button>
+				<button type="button" class="btn btn-success" ng-hide="playDate" ng-click="addPlayDate(playDate)"><bold>-</bold></button>
+
+				</div>
+
+			</div>
+		</div>
+	<div>	
+		<h4>Add Player:</h4>
+		<input type="text" ng-model="newPlayer" typeahead="player for player in availablePlayers | filter:$viewValue | limitTo:8" class="form-control" autofocus placeholder="Player Name"typeahead-on-select="selectPlayer(newPlayer);">
+	</div>
+	
+	<div>	
+		<h4>The Players:</h4>
 		<ul>
 			<li ng-repeat="selctedPlayer in selectedPlayers">{{selctedPlayer}} </li>
 		</ul>
-	<div>
-	
-	
-
-	
-	
-	
 	</div>
+	
+</div>
