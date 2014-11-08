@@ -83,5 +83,13 @@ angular.module('matchupApp')
 
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
+	
+	$scope.teams = ['My awesome team', 'The Penguins', 'Stars', 'Little stars', 'Big Bad wolves'];
+	$scope.oponents = ['Some team', 'The Cobras', 'The Stones', 'Flying Monkeys', 'Metallica', 'The Guys'];
+  // Any function returning a promise object can be used to load values asynchronously
+  
+	$scope.isCollapsed = true;
+	$scope.players = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
+	
 });
 
