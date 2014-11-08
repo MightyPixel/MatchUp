@@ -27,6 +27,7 @@ angular.module('matchupApp')
     }
 
     function updateUserResponse(response) {
+        console.log(response);
         setUser(response);
     }
 
