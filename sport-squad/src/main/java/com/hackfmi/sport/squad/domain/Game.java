@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -20,8 +21,8 @@ public class Game {
     private Sport sport;
     private GameState state;
 
-    private Date startDate;
-    private Date creationDate;
+    private Timestamp startDate;
+    private Timestamp creationDate;
 
     private List<PlayerPosition> playersPositions;
 
@@ -63,22 +64,6 @@ public class Game {
         this.state = state;
     }
 
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
     public GameField getGameField() {
         return gameField;
     }
@@ -101,5 +86,21 @@ public class Game {
 
     public void setPlayersPositions(List<PlayerPosition> playersPositions) {
         this.playersPositions = playersPositions;
+    }
+
+    public Timestamp getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Timestamp startDate) {
+        this.startDate = startDate;
+    }
+
+    public Timestamp getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Timestamp creationDate) {
+        this.creationDate = creationDate;
     }
 }

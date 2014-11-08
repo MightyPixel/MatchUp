@@ -1,33 +1,25 @@
-package com.hackfmi.sport.squad.domain;
+package com.hackfmi.sport.squad.dto;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Created by inakov on 14-11-8.
  */
-@Document
-public class Player implements  BaseDocument{
+public class PlayerDto implements BaseDto{
+    private String id;
 
-    @Id
-    private ObjectId id;
-
-    @Indexed(unique = true)
     private String email;
-    @Indexed
     private String name;
     private Integer age;
     private String city;
 
-    //TODO: Add personal schedule
-
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(ObjectId id) {
+    public void setId(String id) {
         this.id = id;
     }
 

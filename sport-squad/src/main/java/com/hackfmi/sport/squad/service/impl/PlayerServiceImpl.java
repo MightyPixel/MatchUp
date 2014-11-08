@@ -1,6 +1,8 @@
 package com.hackfmi.sport.squad.service.impl;
 
+import com.hackfmi.sport.squad.assembler.PlayerAssembler;
 import com.hackfmi.sport.squad.domain.Player;
+import com.hackfmi.sport.squad.dto.PlayerDto;
 import com.hackfmi.sport.squad.repository.PlayerRepository;
 import com.hackfmi.sport.squad.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +18,13 @@ public class PlayerServiceImpl implements PlayerService {
     @Autowired
     private PlayerRepository playerRepository;
 
+    @Autowired
+    private PlayerAssembler playerAssembler;
+
     @Override
-    public Player findByEmail(String email) {
-        return playerRepository.findByEmail(email);
+    public PlayerDto findByEmail(String email) {
+        Player player = playerRepository.findByEmail(email);
+
+        return playerAssembler.toDto(player);
     }
 }
