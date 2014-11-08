@@ -14,11 +14,49 @@ angular
     'ngCookies',
     'ngResource',
     'ngRoute',
+    'ui.router',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'config',
 ])
+.factory('authHttpResponseInterceptor', function($q, $location, $injector){
+    function redirectToLogin() {
+        var authManager = $injector.get('authManager');
+        authManager.logoutUser();
+        var state = $injector.get('$state'); //This is needed because some bug with circular dependency of $state
+        state.go('login');
+    }
+
+    return {
+        response: function(response){
+            if (response.status === 401) {
+                response.data = {code:'BAD_CREDENTIALS', reason:response.data};
+                redirectToLogin();
+                return response;
+            }
+            if (response.status >= 500) {
+                console.error(response.status, response);
+            }
+
+            return response || $q.when(response);
+        },
+        responseError: function(rejection) {
+            if (rejection.status === 401) {
+                redirectToLogin();
+            }
+            if (rejection.status === 500) {
+                $location.path('/500');
+            }
+            return $q.reject(rejection);
+        }
+    };
+})
 .config(function ($routeProvider) {
-$routeProvider
+    var isUserLogged = ['authManager', function(authManager) {
+        return authManager.getIsUserLogged();
+    }];
+
+    $routeProvider
     .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
@@ -26,6 +64,10 @@ $routeProvider
     .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'AuthCtrl'
+    })
+    .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
     })
     .when('/register', {
         templateUrl: 'views/register.html',

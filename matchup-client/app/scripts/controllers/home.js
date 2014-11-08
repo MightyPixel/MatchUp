@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name matchupApp.controller:GameCtrl
+ * @name matchupApp.controller:HomeCtrl
  * @description
- * # GameCtrl
+ * # HomeCtrl
  * Controller of the matchupApp
  */
 angular.module('matchupApp')
-.controller('GameCtrl', function ($scope) {
+.controller('HomeCtrl', function ($scope) {
 
 });

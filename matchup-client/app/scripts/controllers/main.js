@@ -8,10 +8,12 @@
  * Controller of the matchupApp
  */
 angular.module('matchupApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+.controller('MainCtrl', function ($scope, auth) {
+
+    $scope.isUserLogged = false;
+
+
+    auth.registerObserverCallback('updateMain', function() {
+        $scope.isUserLogged = auth.isUserLogged();
+    })
+});
