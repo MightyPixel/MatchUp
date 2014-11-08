@@ -1,10 +1,12 @@
 package com.hackfmi.sport.squad.assembler;
 
 import org.bson.types.ObjectId;
+import org.springframework.stereotype.Component;
 
 import com.hackfmi.sport.squad.domain.GameField;
 import com.hackfmi.sport.squad.dto.GameFieldDto;
 
+@Component
 public class GameFieldAssembler extends BaseAssembler<GameField, GameFieldDto> {
 
 	@Override
