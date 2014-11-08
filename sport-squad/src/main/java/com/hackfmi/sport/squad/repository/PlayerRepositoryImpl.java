@@ -26,7 +26,8 @@ public class PlayerRepositoryImpl implements PlayerRepository {
 
     @Override
     public Player findByEmail(String email) {
-        Query query = query(where("emailAddress").is(email));
+        System.out.println("email:" + email);
+        Query query = query(where("email").is(email));
         return mongoTemplate.findOne(query, Player.class);
     }
 
