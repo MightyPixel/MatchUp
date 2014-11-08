@@ -20,47 +20,55 @@
     <timepicker class="time" hour-step="1" minute-step="1" show-meridian="false" ng-model="mytime" ng-change="changed()"></timepicker>
 
     <h4>The Place:</h4>
-    <select class="form-control">
-        <option>Sofia</option>
-        <option>Plovdiv</option>
-        <option>Varna</option>
-        <option>Burgas</option>
-    </select>
-	
-	<h4>The Team:</h4>
-    <input type="text" ng-model="team" typeahead="team for team in teams | filter:$viewValue | limitTo:8" class="form-control">
-		
-	<h4>The Oponent:</h4>
-    <input type="text" ng-model="oponent" typeahead="oponent for oponent in oponents | filter:$viewValue | limitTo:8" class="form-control">
+    <input type="text" ng-model="place" typeahead="place for place in places | filter:$viewValue | limitTo:8" class="form-control">
 	
 	<br>
 
-	<h4>The Game:</h4>
-	<div class="radio">
-	  <label>
-		<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-		Casual
-	  </label>
-	</div>
 	
-	<div class="radio">
-	  <label>
-		<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-		Ranked
-	  </label>
-	</div>
+	
+	
+    <tabset justified="true">
+        <tab heading="Casual Game">
+		<h4>The Team:</h4>
+		<input type="text" ng-model="team" typeahead="team for team in teams | filter:$viewValue | limitTo:8" class="form-control">
+		
+		<h4>The Oponent:</h4>
+		<input type="text" ng-model="oponent" typeahead="oponent for oponent in oponents | filter:$viewValue | limitTo:8" class="form-control">
+		<br>
+	
+		<div>
+			<img src="../images/football-field.jpg" class="img-responsive" alt="Responsive image">
+		</div>
+		<br>
+		<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><i class="glyphicon glyphicon-user"></i></button>
+			<div collapse="isCollapsed">
+			<input type="text" ng-model="player" typeahead="player for player in players | filter:$viewValue | limitTo:8" class="form-control">
+		</div>
+
+		</tab>
+
+        <tab heading="Ranked Game">
+		
+		<h4>The Team:</h4>
+		<input type="text" ng-model="team" typeahead="team for team in teams | filter:$viewValue | limitTo:8" class="form-control">
+		
+		<h4>The Oponent:</h4>
+		<input type="text" ng-model="oponent" typeahead="oponent for oponent in oponents | filter:$viewValue | limitTo:8" class="form-control">
+		<br>
+		<div>
+			<img src="../images/football-field.jpg" class="img-responsive" alt="Responsive image">
+		</div>
+		<br>
+		<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><i class="glyphicon glyphicon-user"></i></button>
+			<div collapse="isCollapsed">
+			<input type="text" ng-model="player" typeahead="player for player in players | filter:$viewValue | limitTo:8" class="form-control">
+		</div>
+
+		</tab>
+    </tabset>
 	
 	<hr>
 	
-	<div>
-	    <img src="../images/football-field.jpg" class="img-responsive" alt="Responsive image">
-	</div>
-	<br>
-	<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><i class="glyphicon glyphicon-user"></i></button>
-	    <div collapse="isCollapsed">
-		<input type="text" ng-model="player" typeahead="player for player in players | filter:$viewValue | limitTo:8" class="form-control">
-	</div>
-
 	<br>
 	<button type="button" class="btn btn-primary btn-lg">Create</button>
 	
