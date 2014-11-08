@@ -32,7 +32,6 @@ angular.module('matchupApp')
         });
     }
 
-
     function updateUserResponse(response) {
         // TODO
         setUser(response);
@@ -60,6 +59,14 @@ angular.module('matchupApp')
                 return {name: 'unauthorized'};
             }
         },
-
+        //register an observer
+        registerObserverCallback: function(name, callback){
+            if (!_.find(observerCallbacks, { name: name })) {
+                observerCallbacks.push({
+                    name: name,
+                    callback: callback
+                });
+            }
+        },
     };
 });

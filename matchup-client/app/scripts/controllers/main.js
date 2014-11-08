@@ -8,6 +8,12 @@
  * Controller of the matchupApp
  */
 angular.module('matchupApp')
-.controller('MainCtrl', function ($scope) {
+.controller('MainCtrl', function ($scope, auth) {
 
+    $scope.isUserLogged = false;
+
+
+    auth.registerObserverCallback('updateMain', function() {
+        $scope.isUserLogged = auth.isUserLogged();
+    })
 });
