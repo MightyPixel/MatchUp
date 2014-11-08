@@ -8,6 +8,13 @@ import java.util.List;
 public class CreateTeamRequest {
 
     private String teamName;
+
     private List<String> membersIds;
 
+    @Override
+    public String toString() {
+        return "CreateTeamRequest{" +
+                "teamName='" + teamName + '\'' +
+                '}';
+    }
 }
