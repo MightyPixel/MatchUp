@@ -13,31 +13,25 @@ import java.util.List;
  */
 public class CreateGameCommand {
 
-    private GameType type;
-    private Sport sport;
-
+    private String challengerTeam;
+    private String challengedTeam;
     private Timestamp startDate;
+    private String gameFieldId;
 
-    private List<PlayerPosition> playersPositions;
-
-    private ObjectId gameFieldId;
-
-    private List<ObjectId> teamsIds;
-
-    public GameType getType() {
-        return type;
+    public String getChallengerTeam() {
+        return challengerTeam;
     }
 
-    public void setType(GameType type) {
-        this.type = type;
+    public void setChallengerTeam(String challengerTeam) {
+        this.challengerTeam = challengerTeam;
     }
 
-    public Sport getSport() {
-        return sport;
+    public String getChallengedTeam() {
+        return challengedTeam;
     }
 
-    public void setSport(Sport sport) {
-        this.sport = sport;
+    public void setChallengedTeam(String challengedTeam) {
+        this.challengedTeam = challengedTeam;
     }
 
     public Timestamp getStartDate() {
@@ -48,27 +42,11 @@ public class CreateGameCommand {
         this.startDate = startDate;
     }
 
-    public List<PlayerPosition> getPlayersPositions() {
-        return playersPositions;
-    }
-
-    public void setPlayersPositions(List<PlayerPosition> playersPositions) {
-        this.playersPositions = playersPositions;
-    }
-
-    public ObjectId getGameFieldId() {
+    public String getGameFieldId() {
         return gameFieldId;
     }
 
-    public void setGameFieldId(ObjectId gameFieldId) {
+    public void setGameFieldId(String gameFieldId) {
         this.gameFieldId = gameFieldId;
-    }
-
-    public List<ObjectId> getTeamsIds() {
-        return teamsIds;
-    }
-
-    public void setTeamsIds(List<ObjectId> teamsIds) {
-        this.teamsIds = teamsIds;
     }
 }

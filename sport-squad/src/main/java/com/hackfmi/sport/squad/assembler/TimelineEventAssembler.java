@@ -27,11 +27,7 @@ public class TimelineEventAssembler extends BaseAssembler<TimelineEvent, Timelin
         timelineEventDto.setExpireOn(timelineEvent.getExpireOn());
         timelineEventDto.setExpiring(timelineEvent.isExpiring());
 
-        GameDetailsDto gameDetailsDto = new GameDetailsDto();
-        gameDetailsDto.setGameId(timelineEvent.getGameDetails().getGameId().toString());
-        gameDetailsDto.setMatchDate(timelineEvent.getGameDetails().getMatchDate());
-        gameDetailsDto.setPlaceUrl(timelineEvent.getGameDetails().getPlaceUrl());
-        timelineEventDto.setGameDetails(gameDetailsDto);
+        timelineEventDto.setGameId(timelineEvent.getGameId().toString());
         
         timelineEventDto.setId(timelineEvent.getId().toString());
         timelineEventDto.setMessage(timelineEvent.getMessage());
@@ -47,11 +43,7 @@ public class TimelineEventAssembler extends BaseAssembler<TimelineEvent, Timelin
         timelineEvent.setExpireOn(timelineEventDto.getExpireOn());
         timelineEvent.setExpiring(timelineEventDto.isExpiring());
 
-        GameDetails gameDetails = new GameDetails();
-        gameDetails.setGameId(new ObjectId(timelineEventDto.getGameDetails().getGameId()));
-        gameDetails.setMatchDate(timelineEventDto.getGameDetails().getMatchDate());
-        gameDetails.setPlaceUrl(timelineEventDto.getGameDetails().getPlaceUrl());
-        timelineEvent.setGameDetails(gameDetails);
+        timelineEvent.setGameId(new ObjectId(timelineEventDto.getGameId()));
 
         timelineEvent.setId(new ObjectId(timelineEventDto.getId()));
         timelineEvent.setMessage(timelineEventDto.getMessage());

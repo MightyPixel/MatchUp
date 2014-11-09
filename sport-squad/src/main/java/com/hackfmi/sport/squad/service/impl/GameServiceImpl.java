@@ -3,6 +3,7 @@ package com.hackfmi.sport.squad.service.impl;
 import com.hackfmi.sport.squad.domain.*;
 import java.sql.Timestamp;
 
+import com.hackfmi.sport.squad.service.TimelineEventService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,9 @@ public class GameServiceImpl implements GameService {
     @Autowired
     private GameAssembler gameAssembler;
 
+    @Autowired
+    private TimelineEventService timelineEventService;
+
     @Override
     public GameDto findGameById(String id) {
         return gameAssembler.toDto(gameRepository.findOne(new ObjectId(id)));
@@ -48,23 +52,37 @@ public class GameServiceImpl implements GameService {
     public GameDto createGame(CreateGameCommand createGameCommand) {
 
         Game game = createGameCommandToGame(createGameCommand);
+        notifyAllPlayers(game.getChallengerTeam(), game.getChallengedTeam());
+
         return gameAssembler.toDto(gameRepository.save(game));
     }
 
     private Game createGameCommandToGame(CreateGameCommand createGameCommand){
         Game game = new Game();
         game.setStartDate(createGameCommand.getStartDate());
-        game.setSport(createGameCommand.getSport());
-        game.setPlayersPositions(createGameCommand.getPlayersPositions());
         game.setCreationDate(new Timestamp(System.currentTimeMillis()));
-        game.setType(createGameCommand.getType());
 
-        game.setGameField(gameFieldRepository.findOne(createGameCommand.getGameFieldId()));
-        for(Team team : teamRepository.findAll(createGameCommand.getTeamsIds())){
-            game.getTeams().add(team);
+        game.setGameField(gameFieldRepository.findOne(new ObjectId(createGameCommand.getGameFieldId())));
+        game.setChallengedTeam(teamRepository.findOne(new ObjectId(createGameCommand.getChallengedTeam())));
+        game.setChallengerTeam(teamRepository.findOne(new ObjectId(createGameCommand.getChallengerTeam())));
+
+        for(ObjectId playerId : game.getChallengedTeam().getPlayersIds()){
+            GameInvitation gameInvitation = new GameInvitation();
+            gameInvitation.setPlayerId(playerId);
+            game.getGameInvitationsForChallengedTeam().add(gameInvitation);
+        }
+
+        for(ObjectId playerId : game.getChallengerTeam().getPlayersIds()){
+            GameInvitation gameInvitation = new GameInvitation();
+            gameInvitation.setPlayerId(playerId);
+            game.getGameInvitationsForChallengerTeam().add(gameInvitation);
         }
 
         return game;
+    }
+
+    private void notifyAllPlayers(Team teamOne, Team teamTwo){
+
     }
 
 //    private List<TimelineEventDto> listEventsForPlayer(String playerId){
