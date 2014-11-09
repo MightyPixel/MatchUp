@@ -1,5 +1,6 @@
 package com.hackfmi.sport.squad.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.hackfmi.sport.squad.dto.TimelineEventDto;
@@ -16,7 +17,7 @@ public interface TimelineEventService {
     public void addGameChangedEvent(String recipientId, String message, String gameId, boolean selectPlayers,
                                     String challengedTeamName, String challengerTeamName);
     public void addEnterScoreEvent(String recipientId, String message, String gameId, boolean selectPlayers,
-                                   String challengedTeamName, String challengerTeamName);
+                                   String challengedTeamName, String challengerTeamName, Date gameDate);
 
     public List<TimelineEventDto> getTimelineEventsForPlayer(String playerId);
 
