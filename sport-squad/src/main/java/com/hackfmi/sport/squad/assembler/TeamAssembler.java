@@ -31,7 +31,9 @@ public class TeamAssembler extends BaseAssembler<Team, TeamDto> {
 		teamDto.setId(team.getId().toString());
 		teamDto.setName(team.getName());
 		teamDto.setCity(team.getCity());
-		teamDto.setCaptainDto(playerAssembler.toDto(team.getCaptain()));
+        if(team.getCaptain() != null){
+		    teamDto.setCaptainDto(playerAssembler.toDto(team.getCaptain()));
+        }
 		teamDto.setSchedule(team.getSchedule());
 		teamDto.setPlayersIds(objectIdToStringIdList(team.getPlayersIds()));
 		teamDto.setRating(team.getRating());
@@ -43,7 +45,9 @@ public class TeamAssembler extends BaseAssembler<Team, TeamDto> {
 		team.setId(new ObjectId(teamDto.getId()));
 		team.setName(teamDto.getName());
 		team.setName(teamDto.getName());
-		team.setCaptain(playerAssembler.toDocument(teamDto.getCaptainDto()));
+        if(teamDto.getCaptainDto()!=null){
+            team.setCaptain(playerAssembler.toDocument(teamDto.getCaptainDto()));
+        }
 		team.setSchedule(teamDto.getSchedule());
 		team.setPlayersIds(stringIdToObjectIdList(teamDto.getPlayersIds()));
 		team.setRating(teamDto.getRating());

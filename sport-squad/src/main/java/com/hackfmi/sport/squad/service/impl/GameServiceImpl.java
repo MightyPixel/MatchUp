@@ -63,6 +63,8 @@ public class GameServiceImpl implements GameService {
     public GameDto createGame(CreateGameCommand createGameCommand) {
 
         Game game = createGameCommandToGame(createGameCommand);
+        ObjectId gameId = gameRepository.save(game).getId();
+        game.setId(gameId);
         notifyAllPlayers(game.getChallengerTeam(), game.getChallengedTeam(), game.getId());
         createScoreEvents(game);
 
