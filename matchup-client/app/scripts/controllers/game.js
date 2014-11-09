@@ -98,17 +98,8 @@ angular.module('matchupApp')
 	];
 	$scope.opponentPlayers = $scope.players;
 	$scope.isCollapsed = true;
-<<<<<<< HEAD
-	
-	$scope.places = ['Sofia', 'Plovdiv', 'Varna', 'Burgas'];
-	
-	$scope.changeClass = function(){
-		document.getElementById("MyElement").className = "MyClass";
-	}
-	
-	
-=======
-	$scope.players = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
+
+	//$scope.players = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
 	$scope.places = ['Sofia', 'Plovdiv', 'Varna', 'Burgas'];
 
     $scope.create = function() {
@@ -123,6 +114,6 @@ angular.module('matchupApp')
             console.log(response);
         });
     }
->>>>>>> 2847e7f2c3e475b826aba1edabd4f489d497f9e7
+
 });
 
