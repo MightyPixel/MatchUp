@@ -8,7 +8,7 @@ import com.hackfmi.sport.squad.domain.ScheduleInterval;
 public class TeamDto implements BaseDto {
 	
 	private String id;
-
+	private String city;
     private String name;
 
     private PlayerDto captainDto;
@@ -33,6 +33,14 @@ public class TeamDto implements BaseDto {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+    public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public PlayerDto getCaptainDto() {

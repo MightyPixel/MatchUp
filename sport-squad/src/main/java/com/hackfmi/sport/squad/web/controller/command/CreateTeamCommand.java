@@ -8,6 +8,7 @@ import java.util.List;
 public class CreateTeamCommand {
 
     private String teamName;
+    private String city;
     private List<String> membersIds;
     private List<Moments> schedule;
 
@@ -18,8 +19,16 @@ public class CreateTeamCommand {
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
+    
+    public String getCity() {
+		return city;
+	}
 
-    public List<String> getMembersIds() {
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public List<String> getMembersIds() {
         return membersIds;
     }
 

@@ -1,14 +1,15 @@
 package com.hackfmi.sport.squad.assembler;
 
-import com.hackfmi.sport.squad.domain.GameDetails;
-import com.hackfmi.sport.squad.domain.TimelineEvent;
-import com.hackfmi.sport.squad.dto.GameDetailsDto;
-import com.hackfmi.sport.squad.dto.TimelineEventDto;
 import org.bson.types.ObjectId;
+import org.springframework.stereotype.Component;
+
+import com.hackfmi.sport.squad.domain.TimelineEvent;
+import com.hackfmi.sport.squad.dto.TimelineEventDto;
 
 /**
  * Created by inakov on 14-11-9.
  */
+@Component
 public class TimelineEventAssembler extends BaseAssembler<TimelineEvent, TimelineEventDto> {
     @Override
     protected TimelineEvent createDocument() {

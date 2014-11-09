@@ -8,6 +8,6 @@ import com.hackfmi.sport.squad.web.controller.command.CreateGameCommand;
  */
 public interface GameService {
 
-    public GameDto findGameById(String id);
+    public GameDto findById(String id);
     public GameDto createGame(CreateGameCommand createGameCommand);
 }

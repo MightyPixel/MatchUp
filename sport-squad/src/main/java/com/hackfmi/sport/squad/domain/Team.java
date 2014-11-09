@@ -20,8 +20,10 @@ public class Team {
 
     @Indexed
     private String name;
+    @Indexed
+    private String city;
 
-    @DBRef
+	@DBRef
     private Player captain;
     private List<ScheduleInterval> schedule = new ArrayList<>();
     private List<ObjectId> playersIds = new ArrayList<>();
@@ -45,6 +47,14 @@ public class Team {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
 
     public Player getCaptain() {
         return captain;

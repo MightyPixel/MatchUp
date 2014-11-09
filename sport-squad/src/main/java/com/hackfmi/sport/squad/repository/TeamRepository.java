@@ -11,5 +11,9 @@ import java.util.List;
  */
 public interface TeamRepository extends CrudRepository<Team, ObjectId> {
 
+//	Team findById(ObjectId id);
+	
     List<Team> findByNameLike(String name);
+    List<Team> findByCity(String city);
+    List<Team> findByCityAndIdNot(String city, ObjectId id);
 }

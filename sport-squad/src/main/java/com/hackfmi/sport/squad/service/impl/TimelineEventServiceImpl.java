@@ -1,15 +1,17 @@
 package com.hackfmi.sport.squad.service.impl;
 
-import com.hackfmi.sport.squad.domain.GameDetails;
-import com.hackfmi.sport.squad.domain.TimelineEvent;
-import com.hackfmi.sport.squad.dto.GameDetailsDto;
-import com.hackfmi.sport.squad.repository.TimelineEventRepository;
-import com.hackfmi.sport.squad.service.TimelineEventService;
+import java.util.Date;
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import com.hackfmi.sport.squad.assembler.TimelineEventAssembler;
+import com.hackfmi.sport.squad.domain.TimelineEvent;
+import com.hackfmi.sport.squad.dto.TimelineEventDto;
+import com.hackfmi.sport.squad.repository.TimelineEventRepository;
+import com.hackfmi.sport.squad.service.TimelineEventService;
 
 /**
  * Created by inakov on 14-11-8.
@@ -19,7 +21,9 @@ public class TimelineEventServiceImpl implements TimelineEventService {
 
     @Autowired
     private TimelineEventRepository timelineEventRepository;
-
+    
+    @Autowired
+    private TimelineEventAssembler timelineEventAssembler;
 
 //    public void addGameArrangedOrChangedEvent(String recipientId, String message, GameDetailsDto gameDetails){
 //        TimelineEvent event = new TimelineEvent();
@@ -62,6 +66,12 @@ public class TimelineEventServiceImpl implements TimelineEventService {
         event.setPendingAction(true);
         event.setSelectPlayers(selectPlayers);
         event.setGameId(new ObjectId(gameId));
+
         timelineEventRepository.save(event);
+    }
+    
+    public List<TimelineEventDto> getTimelineEventsForPlayer(String playerId) {
+    	Date currentDate = new Date(System.currentTimeMillis());
+    	return timelineEventAssembler.toDtos(timelineEventRepository.findByRecipientIdAndCreationDateLessThan(new ObjectId(playerId), currentDate));
     }
 }
