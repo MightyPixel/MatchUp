@@ -14,4 +14,19 @@
 		float: left; /* add this */
 		margin-top: 120px;
 	}
+	
+	#oponent {
+		overflow: hidden; /* add this to contain floated children */
+	}
+
+	#name {
+		float:left; /* add this */
+	}
+	
+	#rank {
+		float: left; /* add this */
+	}
+	
+	
+	
 }
