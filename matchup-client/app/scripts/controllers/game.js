@@ -10,7 +10,7 @@
 
 
 angular.module('matchupApp')
-.controller('GameCtrl', function ($scope) {
+.controller('GameCtrl', function ($scope, gameServiceProxy) {
 
     $scope.today = function() {
         $scope.dt = new Date();
@@ -91,6 +91,19 @@ angular.module('matchupApp')
   
 	$scope.isCollapsed = true;
 	$scope.players = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
-	$scope.places = ['Sofia', 'Plovdiv', 'Varna', 'Burgas']
+	$scope.places = ['Sofia', 'Plovdiv', 'Varna', 'Burgas'];
+
+    $scope.create = function() {
+        var game = {
+            date: '1234125',
+            place: '123',
+            challengerTeam: '1',
+            challengedTeam: '2'
+        }
+
+        gameServiceProxy.create(game).then(function(response) {
+            console.log(response);
+        });
+    }
 });
 

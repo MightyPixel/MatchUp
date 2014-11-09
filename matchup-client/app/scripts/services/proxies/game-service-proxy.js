@@ -11,11 +11,9 @@ angular.module('matchupApp')
             return $http.post(APP_CONFIG.serviceBaseUrl + 'game/update', game);
         },
 
-        invitationResponse: function(player, game, response) {
+        gameConfirmation: function(game) {
             return $http.post(APP_CONFIG.serviceBaseUrl + 'game/invitation-response', {
-                player: player,
-                game: game,
-                response: response
+                game: game
             });
         },
     };
