@@ -62,6 +62,7 @@ public class TimelineEventServiceImpl implements TimelineEventService {
         event.setPendingAction(true);
         event.setSelectPlayers(selectPlayers);
         event.setGameId(new ObjectId(gameId));
+
         timelineEventRepository.save(event);
     }
 }
