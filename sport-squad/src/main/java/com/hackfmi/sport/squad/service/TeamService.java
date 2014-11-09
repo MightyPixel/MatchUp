@@ -10,7 +10,7 @@ import com.hackfmi.sport.squad.web.controller.command.CreateTeamCommand;
  */
 public interface TeamService {
 
-    public TeamDto createTeam(CreateTeamCommand newTeam);
+    public TeamDto createTeam(CreateTeamCommand newTeam, String playerId);
     public TeamDto findById(String id);
 
     public List<TeamDto> findByNameLike(String name);

@@ -74,9 +74,9 @@ public class GameServiceImpl implements GameService {
         Team challengerTeam = game.getChallengerTeam();
         String msg = "Please enter score!";
         timelineEventService.addEnterScoreEvent(challengedTeam.getCaptain().getId().toString(),
-                msg, game.getId().toString(), false, challengedTeam.getName(), challengerTeam.getName());
+                msg, game.getId().toString(), false, challengedTeam.getName(), challengerTeam.getName(), game.getStartDate());
         timelineEventService.addEnterScoreEvent(challengerTeam.getCaptain().getId().toString(),
-                msg, game.getId().toString(), false, challengedTeam.getName(), challengerTeam.getName());
+                msg, game.getId().toString(), false, challengedTeam.getName(), challengerTeam.getName(), game.getStartDate());
     }
 
     private Game createGameCommandToGame(CreateGameCommand createGameCommand){

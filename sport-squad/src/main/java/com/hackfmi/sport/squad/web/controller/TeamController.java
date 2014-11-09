@@ -51,9 +51,9 @@ public class TeamController {
     	}
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/create", consumes = "application/json")
-    public ResponseEntity<TeamDto> createTeam(@RequestBody CreateTeamCommand request){
-        TeamDto team = teamService.createTeam(request);
+    @RequestMapping(method = RequestMethod.POST, value = "/create/{playerId}", consumes = "application/json")
+    public ResponseEntity<TeamDto> createTeam(@RequestBody CreateTeamCommand request, @PathVariable String playerId){
+        TeamDto team = teamService.createTeam(request, playerId);
         return new ResponseEntity<TeamDto>(team, HttpStatus.OK);
     }
 

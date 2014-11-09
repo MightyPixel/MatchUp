@@ -79,9 +79,9 @@ public class TimelineEventServiceImpl implements TimelineEventService {
 
     @Override
     public void addEnterScoreEvent(String recipientId, String message, String gameId, boolean selectPlayers,
-                                              String challengedTeamName, String challengerTeamName){
+                                              String challengedTeamName, String challengerTeamName, Date gameDate){
         TimelineEvent event = new TimelineEvent();
-        event.setCreationDate(new Date(System.currentTimeMillis()));
+        event.setCreationDate(gameDate);
         event.setRecipientId(new ObjectId(recipientId));
         event.setMessage(message);
         event.setPendingAction(true);
