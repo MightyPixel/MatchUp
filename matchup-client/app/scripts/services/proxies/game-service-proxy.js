@@ -4,7 +4,9 @@ angular.module('matchupApp')
 .service('gameServiceProxy', function($http, APP_CONFIG) {
     return {
         create: function(game) {
-            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/create', game);
+            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/create', game, {
+                headers: {'Content-Type': 'application/json'}
+            });
         },
 
         update: function(game) {
@@ -12,7 +14,7 @@ angular.module('matchupApp')
         },
 
         gameConfirmation: function(game) {
-            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/invitation-response', {
+            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/confirmation', {
                 game: game
             });
         },

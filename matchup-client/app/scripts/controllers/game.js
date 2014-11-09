@@ -95,8 +95,8 @@ angular.module('matchupApp')
 
     $scope.create = function() {
         var game = {
-            date: '1234125',
-            place: '123',
+            startDate: '1234125',
+            gameFieldId: '123',
             challengerTeam: '1',
             challengedTeam: '2'
         }
