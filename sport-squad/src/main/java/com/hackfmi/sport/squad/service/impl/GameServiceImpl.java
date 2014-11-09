@@ -52,8 +52,9 @@ public class GameServiceImpl implements GameService {
     public GameDto createGame(CreateGameCommand createGameCommand) {
 
         Game game = createGameCommandToGame(createGameCommand);
-        notifyAllPlayers(game.getChallengerTeam(), game.getChallengedTeam());
+        notifyAllPlayers(game.getChallengerTeam(), game.getChallengedTeam(), game.getId());
 
+        //TODO: Create notification for gameResult
         return gameAssembler.toDto(gameRepository.save(game));
     }
 
@@ -81,7 +82,21 @@ public class GameServiceImpl implements GameService {
         return game;
     }
 
-    private void notifyAllPlayers(Team teamOne, Team teamTwo){
+    private void notifyAllPlayers(Team teamOne, Team teamTwo, ObjectId gameId){
+        for(ObjectId playerId : teamOne.getPlayersIds()){
+            timelineEventService.
+                    addPlayerMatchInvitationEvent(playerId.toString(), "You have match ...", gameId.toString(), false);
+        }
+        for(ObjectId playerId : teamTwo.getPlayersIds()){
+            timelineEventService.
+                    addPlayerMatchInvitationEvent(playerId.toString(), "You have match ...", gameId.toString(), false);
+        }
+        timelineEventService.
+                addPlayerMatchInvitationEvent(teamOne.getCaptain().getId().toString(),
+                        "Select players positions ...", gameId.toString(), true);
+        timelineEventService.
+                addPlayerMatchInvitationEvent(teamTwo.getCaptain().getId().toString(),
+                        "You have match ... Select players positions", gameId.toString(), true);
 
     }
 

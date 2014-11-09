@@ -33,7 +33,7 @@ public class TeamController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{name}", consumes = "application/json")
-    public ResponseEntity<List<TeamDto>> createTeam(@PathVariable String name){
+    public ResponseEntity<List<TeamDto>> getTeam(@PathVariable String name){
         List<TeamDto> teams = teamService.getTeamsByNameLike(name);
 
         return new ResponseEntity<List<TeamDto>>(teams, HttpStatus.OK);

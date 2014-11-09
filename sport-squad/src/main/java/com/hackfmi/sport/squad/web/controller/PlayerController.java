@@ -28,7 +28,7 @@ public class PlayerController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/player/create", consumes = "application/json")
-    public ResponseEntity<PlayerDto> createTeam(@RequestBody CreateUserCommand createUserCommand){
+    public ResponseEntity<PlayerDto> createPlater(@RequestBody CreateUserCommand createUserCommand){
         PlayerDto playerDto = playerService.createPlayer(createUserCommand);
         return new ResponseEntity<PlayerDto>(playerDto, HttpStatus.OK);
     }
