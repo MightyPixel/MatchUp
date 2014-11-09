@@ -22,20 +22,20 @@ public class PlayerController {
     @Autowired
     private PlayerService playerService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/player/{email}")
-    public ResponseEntity<PlayerDto> findByEmail(@PathVariable String email){
-        return new ResponseEntity<PlayerDto>(playerService.findByEmail(email), HttpStatus.OK);
+    @RequestMapping(method = RequestMethod.GET, value = "/get", params = {"id"}, produces = "application/json")
+    public ResponseEntity<PlayerDto> getPlayerById(@PathVariable String id){
+        return new ResponseEntity<PlayerDto>(playerService.findById(id), HttpStatus.OK);
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/get", params = {"namePattern"}, produces = "application/json")
+    public ResponseEntity<List<PlayerDto>> getPlayerByNameLike(@RequestParam String namePattern){
+        return new ResponseEntity<List<PlayerDto>>(playerService.findByNameLike(namePattern), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/player/create", consumes = "application/json")
-    public ResponseEntity<PlayerDto> createPlater(@RequestBody CreateUserCommand createUserCommand){
+    public ResponseEntity<PlayerDto> createPlayer(@RequestBody CreateUserCommand createUserCommand){
         PlayerDto playerDto = playerService.createPlayer(createUserCommand);
         return new ResponseEntity<PlayerDto>(playerDto, HttpStatus.OK);
-    }
-    
-    @RequestMapping(method = RequestMethod.GET, value = "/player/find", params = {"namePattern"})
-    public List<PlayerDto> findByNameLike(@RequestParam String namePattern){
-        return playerService.findByNameLike(namePattern);
     }
 
 }

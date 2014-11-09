@@ -44,7 +44,7 @@ public class GameServiceImpl implements GameService {
     private TimelineEventService timelineEventService;
 
     @Override
-    public GameDto findGameById(String id) {
+    public GameDto findById(String id) {
         return gameAssembler.toDto(gameRepository.findOne(new ObjectId(id)));
     }
 
