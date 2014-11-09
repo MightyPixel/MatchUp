@@ -77,8 +77,20 @@ angular
         templateUrl: 'views/create-team.html',
         controller: 'GameCtrl'
     })
+    .when('/my-teams', {
+        templateUrl: 'views/my-teams.html',
+        controller: 'TeamCtrl'
+    })
+    .when('/team/:id', {
+        templateUrl: 'views/team.html',
+        controller: 'TeamCtrl'
+    })
     .when('/create-game', {
         templateUrl: 'views/create-game.html',
+        controller: 'GameCtrl'
+    })
+    .when('/game/:id', {
+        templateUrl: 'views/game.html',
         controller: 'GameCtrl'
     })
     .when('/about', {
@@ -88,10 +100,6 @@ angular
     .when('/profile', {
       templateUrl: 'views/profile.html',
       controller: 'ProfileCtrl'
-    })
-    .when('/team', {
-      templateUrl: 'views/team.html',
-      controller: 'TeamCtrl'
     })
     .otherwise({
         redirectTo: '/'
