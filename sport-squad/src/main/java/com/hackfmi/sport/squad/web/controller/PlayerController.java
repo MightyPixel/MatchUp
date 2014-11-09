@@ -16,24 +16,24 @@ import com.hackfmi.sport.squad.service.PlayerService;
  */
 
 @RestController
-@RequestMapping("/service/player")
+@RequestMapping("/service")
 public class PlayerController {
 
     @Autowired
     private PlayerService playerService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{email}")
+    @RequestMapping(method = RequestMethod.GET, value = "/player/{email}")
     public ResponseEntity<PlayerDto> findByEmail(@PathVariable String email){
         return new ResponseEntity<PlayerDto>(playerService.findByEmail(email), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/create", consumes = "application/json")
+    @RequestMapping(method = RequestMethod.POST, value = "/player/create", consumes = "application/json")
     public ResponseEntity<PlayerDto> createTeam(@RequestBody CreateUserCommand createUserCommand){
         PlayerDto playerDto = playerService.createPlayer(createUserCommand);
         return new ResponseEntity<PlayerDto>(playerDto, HttpStatus.OK);
     }
     
-    @RequestMapping(method = RequestMethod.GET, value = "/find", params = {"namePattern"})
+    @RequestMapping(method = RequestMethod.GET, value = "/player/find", params = {"namePattern"})
     public List<PlayerDto> findByNameLike(@RequestParam String namePattern){
         return playerService.findByNameLike(namePattern);
     }

@@ -43,11 +43,11 @@ angular.module('matchupApp')
         getIsUserLogged: function() { isUserLogged() },
 
         loginUser: function(username, password) {
-            return loginServiceProxy.login(username, password).then(updateUserResponse, handleServiceError);
-            // updateUserResponse({
-            //    'firstName': 'Rupert',
-            //    'lastName': 'Bear',
-            // });
+            // return loginServiceProxy.login(username, password).then(updateUserResponse, handleServiceError);
+            updateUserResponse({
+                'firstName': 'Rupert',
+                'lastName': 'Bear',
+            });
         },
 
         getHomeState: function() {

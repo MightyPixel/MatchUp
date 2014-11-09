@@ -6,6 +6,8 @@ import java.util.List;
 import com.hackfmi.sport.squad.domain.GameState;
 import com.hackfmi.sport.squad.domain.GameType;
 import com.hackfmi.sport.squad.domain.Sport;
+import com.hackfmi.sport.squad.domain.Team;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 public class GameDto implements BaseDto {
 
@@ -21,8 +23,9 @@ public class GameDto implements BaseDto {
 
 	private GameFieldDto gameFieldDto;
 
-	private List<TeamDto> teamsDto;
-	
+    private TeamDto challengerTeam;
+    private TeamDto challengedTeam;
+
 	@Override
 	public String getId() {
 		return id;
@@ -89,12 +92,19 @@ public class GameDto implements BaseDto {
 		this.gameFieldDto = gameFieldDto;
 	}
 
-	public List<TeamDto> getTeamsDto() {
-		return teamsDto;
-	}
+    public TeamDto getChallengerTeam() {
+        return challengerTeam;
+    }
 
-	public void setTeamsDto(List<TeamDto> teamsDto) {
-		this.teamsDto = teamsDto;
-	}
+    public void setChallengerTeam(TeamDto challengerTeam) {
+        this.challengerTeam = challengerTeam;
+    }
 
+    public TeamDto getChallengedTeam() {
+        return challengedTeam;
+    }
+
+    public void setChallengedTeam(TeamDto challengedTeam) {
+        this.challengedTeam = challengedTeam;
+    }
 }

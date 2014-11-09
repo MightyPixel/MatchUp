@@ -37,7 +37,8 @@ public class GameAssembler extends BaseAssembler<Game, GameDto> {
 		gameDto.setCreationDate(game.getCreationDate());
 		gameDto.setPlayersPositionsDto(playerPositionAssembler.toDtos(game.getPlayersPositions()));
 		gameDto.setGameFieldDto(gameFieldAssembler.toDto(game.getGameField()));
-		gameDto.setTeamsDto(teamAssembler.toDtos(game.getTeams()));
+		gameDto.setChallengedTeam(teamAssembler.toDto(game.getChallengedTeam()));
+        gameDto.setChallengerTeam(teamAssembler.toDto(game.getChallengerTeam()));
 	}
 
 	@Override
@@ -50,7 +51,8 @@ public class GameAssembler extends BaseAssembler<Game, GameDto> {
 		game.setCreationDate(gameDto.getCreationDate());
 		game.setPlayersPositions(playerPositionAssembler.toDocuments(gameDto.getPlayersPositionsDto()));
 		game.setGameField(gameFieldAssembler.toDocument(gameDto.getGameFieldDto()));
-		game.setTeams(teamAssembler.toDocuments(gameDto.getTeamsDto()));
+        game.setChallengedTeam(teamAssembler.toDocument(gameDto.getChallengedTeam()));
+        game.setChallengerTeam(teamAssembler.toDocument(gameDto.getChallengerTeam()));
 	}
 
 }

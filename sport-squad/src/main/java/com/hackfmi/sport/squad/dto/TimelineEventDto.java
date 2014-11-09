@@ -19,7 +19,8 @@ public class TimelineEventDto implements BaseDto {
     private Date expireOn;
     private String message;
 
-    private GameDetailsDto gameDetails;
+    private String gameId;
+//    private GameDetailsDto gameDetails;
 
     private Boolean pendingAction = false;
     private Boolean accepted;
@@ -75,14 +76,6 @@ public class TimelineEventDto implements BaseDto {
         this.message = message;
     }
 
-    public GameDetailsDto getGameDetails() {
-        return gameDetails;
-    }
-
-    public void setGameDetails(GameDetailsDto gameDetails) {
-        this.gameDetails = gameDetails;
-    }
-
     public Boolean getPendingAction() {
         return pendingAction;
     }
@@ -105,5 +98,13 @@ public class TimelineEventDto implements BaseDto {
 
     public void setSelectPlayers(Boolean selectPlayers) {
         this.selectPlayers = selectPlayers;
+    }
+
+    public String getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(String gameId) {
+        this.gameId = gameId;
     }
 }

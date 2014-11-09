@@ -7,7 +7,7 @@ import com.hackfmi.sport.squad.dto.GameDetailsDto;
  */
 public interface TimelineEventService {
 
-    public void addGameArrangedOrChangedEvent(String recipientId, String message, GameDetailsDto gameDetails);
-    public void addPlayerSelectionEvent(String recipientId, String message, GameDetailsDto gameDetails);
-    public void addMatchInvitationEvent(String recipientId, String message, GameDetailsDto gameDetails);
+//    public void addGameArrangedOrChangedEvent(String recipientId, String message, GameDetailsDto gameDetails);
+//    public void addPlayerSelectionEvent(String recipientId, String message, GameDetailsDto gameDetails);
+    public void addPlayerMatchInvitationEvent(String recipientId, String message, String gameId, boolean selectPlayers);
 }

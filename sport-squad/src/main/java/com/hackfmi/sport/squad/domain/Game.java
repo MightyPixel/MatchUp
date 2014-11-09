@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +18,8 @@ public class Game {
 
     @Id
     private ObjectId id;
-    private GameType type;
-    private Sport sport;
+    private GameType type = GameType.RANKED;
+    private Sport sport = Sport.FOOTBALL;
     private GameState state;
 
     private Timestamp startDate;
@@ -26,11 +27,16 @@ public class Game {
 
     private List<PlayerPosition> playersPositions;
 
+    private List<GameInvitation> gameInvitationsForChallengerTeam = new ArrayList<>();
+    private List<GameInvitation> gameInvitationsForChallengedTeam = new ArrayList<>();
+
     @DBRef
     private GameField gameField;
 
     @DBRef
-    private List<Team> teams;
+    private Team challengerTeam;
+    @DBRef
+    private Team challengedTeam;
 
     public ObjectId getId() {
         return id;
@@ -72,14 +78,6 @@ public class Game {
         this.gameField = gameField;
     }
 
-    public List<Team> getTeams() {
-        return teams;
-    }
-
-    public void setTeams(List<Team> teams) {
-        this.teams = teams;
-    }
-
     public List<PlayerPosition> getPlayersPositions() {
         return playersPositions;
     }
@@ -100,7 +98,40 @@ public class Game {
         return creationDate;
     }
 
+    public Team getChallengedTeam() {
+        return challengedTeam;
+    }
+
+    public void setChallengedTeam(Team challengedTeam) {
+        this.challengedTeam = challengedTeam;
+    }
+
+    public Team getChallengerTeam() {
+
+        return challengerTeam;
+    }
+
+    public void setChallengerTeam(Team challengerTeam) {
+        this.challengerTeam = challengerTeam;
+    }
+
     public void setCreationDate(Timestamp creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public List<GameInvitation> getGameInvitationsForChallengerTeam() {
+        return gameInvitationsForChallengerTeam;
+    }
+
+    public void setGameInvitationsForChallengerTeam(List<GameInvitation> gameInvitationsForChallengerTeam) {
+        this.gameInvitationsForChallengerTeam = gameInvitationsForChallengerTeam;
+    }
+
+    public List<GameInvitation> getGameInvitationsForChallengedTeam() {
+        return gameInvitationsForChallengedTeam;
+    }
+
+    public void setGameInvitationsForChallengedTeam(List<GameInvitation> gameInvitationsForChallengedTeam) {
+        this.gameInvitationsForChallengedTeam = gameInvitationsForChallengedTeam;
     }
 }

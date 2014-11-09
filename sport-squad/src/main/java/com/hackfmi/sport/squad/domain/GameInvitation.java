@@ -11,12 +11,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class GameInvitation {
 
-    @Id
-    private ObjectId id;
-    private ObjectId gameId;
-
-    @DBRef
-    private Player receiver;
+    private ObjectId playerId;
     private InvitationStatus status;
 
+    public ObjectId getPlayerId() {
+        return playerId;
+    }
+
+    public void setPlayerId(ObjectId playerId) {
+        this.playerId = playerId;
+    }
+
+    public InvitationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(InvitationStatus status) {
+        this.status = status;
+    }
 }

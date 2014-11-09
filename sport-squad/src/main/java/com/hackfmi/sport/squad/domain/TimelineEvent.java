@@ -22,7 +22,7 @@ public class TimelineEvent implements BaseDocument {
     private Date expireOn;
     private String message;
 
-    private GameDetails gameDetails;
+    private ObjectId gameId;
 
     private Boolean pendingAction = false;
     private Boolean accepted;
@@ -78,14 +78,6 @@ public class TimelineEvent implements BaseDocument {
         this.message = message;
     }
 
-    public GameDetails getGameDetails() {
-        return gameDetails;
-    }
-
-    public void setGameDetails(GameDetails gameDetails) {
-        this.gameDetails = gameDetails;
-    }
-
     public Boolean getPendingAction() {
         return pendingAction;
     }
@@ -108,5 +100,13 @@ public class TimelineEvent implements BaseDocument {
 
     public void setSelectPlayers(Boolean selectPlayers) {
         this.selectPlayers = selectPlayers;
+    }
+
+    public ObjectId getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(ObjectId gameId) {
+        this.gameId = gameId;
     }
 }
