@@ -1,10 +1,10 @@
 <div>
     <div class="timeline-heading">
-        <h4 class="timeline-title">{{ event.team }}</h4>
-        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{ event.datetime }}</small></p>
+        <h4 class="timeline-title">{{ event.challengerTeamName }}</h4>
+        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{ event.creationDate | date:'dd-MMMM-yyyy HH:mm' }}</small></p>
     </div>
     <div class="timeline-body">
-        <p>{{ event.details }}</p>
+        <p>{{ event.message }}</p>
         <hr>
         <div class="btn-group response-menu">
             <button type="button" class="btn btn-lg btn-success">Accept</button>
