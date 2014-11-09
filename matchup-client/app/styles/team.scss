@@ -8,7 +8,7 @@
 	#select-day {
 		width: 330px;
 		float:left; /* add this */
-		margin: 33px 33px 33px 33px;
+		margin: 33px 33px 33px 26px;
 		 
 	}
 
@@ -23,6 +23,14 @@
 
 	#remove-button {
 		float: left; /* add this */
+		margin: 33px 33px 33px 0px;
+	}
+	
+	.team {
+		margin: 33px 33px 33px 33px;
+	}
+	
+	.margins {
 		margin: 33px 33px 33px 0px;
 	}
 	

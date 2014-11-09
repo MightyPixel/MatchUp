@@ -38,7 +38,7 @@
 	  <div class="col-xs-6">
 		<div class = "btn game-team" ng-repeat="opponentPlayer in opponentPlayers" ng-class="{ 'btn-success': opponentPlayer.response == 'ACCEPTED','btn-warning': opponentPlayer.response == 'PENDING' ,'btn-danger': opponentPlayer.response == 'DENIED' }">
 
-		<div ng-if="opponentPlayer.response == 'ACCEPTED'">
+			<div ng-if="opponentPlayer.response == 'ACCEPTED'">
 				<div id="name" >{{opponentPlayer.name}} accepted.</div>
 			</div>
 			<div ng-if="opponentPlayer.response == 'PENDING'">
