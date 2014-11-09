@@ -8,7 +8,7 @@
  * Controller of the matchupApp
  */
 angular.module('matchupApp')
-.controller('AuthCtrl', function ($scope, $location, auth) {
+.controller('AuthCtrl', function ($scope, $location, auth, playerServiceProxy) {
     $scope.isCoolUserName = false;
 
     $scope.login = function() {
@@ -22,8 +22,10 @@ angular.module('matchupApp')
     };
 
     $scope.register = function() {
-        console.log($scope.username, $scope.password, $scope.firstName, $scope.lastName, $scope.city)
-
+        playerServiceProxy.createPlayer($scope.player).then(function(response) {
+            console.log(response);
+            auth.setUser(response.data);
+        });
     }
 
 });

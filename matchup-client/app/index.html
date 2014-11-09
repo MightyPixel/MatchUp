@@ -45,7 +45,7 @@
                 <a ng-href="#/about"  ng-click="setActiveTab('about')">About</a>
             </li>
             <li ng-show="isUserLogged" class="dropdown" ng-class="{ 'active': activeTab == 'profile' }">
-                <a class="dropdown-toggle" data-toggle="dropdown">Profile<span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown">{{ user.name }}<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a ng-href="#/profile" ng-click="setActiveTab('profile')">View Profile</a></li>
                     <li><a ng-click="logout()">Logout</a></li>

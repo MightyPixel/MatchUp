@@ -41,6 +41,7 @@ angular.module('matchupApp')
 
     return {
         getIsUserLogged: function() { isUserLogged() },
+        setUser: function(user) { setUser(user) },
 
         loginUser: function(username, password) {
             // return loginServiceProxy.login(username, password).then(updateUserResponse, handleServiceError);
