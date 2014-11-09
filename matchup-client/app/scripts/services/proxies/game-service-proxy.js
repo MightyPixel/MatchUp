@@ -9,8 +9,10 @@ angular.module('matchupApp')
             });
         },
 
-        update: function(game) {
-            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/update', game);
+        gameCancel: function(game) {
+            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/cancel', game, {
+                headers: {'Content-Type': 'application/json'}
+            });
         },
 
         gameConfirmation: function(game) {
@@ -18,6 +20,7 @@ angular.module('matchupApp')
                 game: game
             });
         },
+// Fields
     };
 });
 
