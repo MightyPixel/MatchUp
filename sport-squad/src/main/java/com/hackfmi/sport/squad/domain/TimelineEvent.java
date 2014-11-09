@@ -18,15 +18,18 @@ public class TimelineEvent implements BaseDocument {
     private ObjectId recipientId;
     private Date creationDate;
 
-    private boolean expiring = false;
-    private Date expireOn;
+    private String challengedTeamName;
+    private String challengerTeamName;
+    private EventType status;
+    //private boolean expiring = false;
+    //private Date expireOn;
     private String message;
 
     private ObjectId gameId;
 
     private Boolean pendingAction = false;
     private Boolean accepted;
-    private Boolean selectPlayers;
+    //private Boolean selectPlayers;
 
     @Override
     public ObjectId getId() {
@@ -54,22 +57,6 @@ public class TimelineEvent implements BaseDocument {
         this.creationDate = creationDate;
     }
 
-    public boolean isExpiring() {
-        return expiring;
-    }
-
-    public void setExpiring(boolean expiring) {
-        this.expiring = expiring;
-    }
-
-    public Date getExpireOn() {
-        return expireOn;
-    }
-
-    public void setExpireOn(Date expireOn) {
-        this.expireOn = expireOn;
-    }
-
     public String getMessage() {
         return message;
     }
@@ -94,19 +81,35 @@ public class TimelineEvent implements BaseDocument {
         this.accepted = accepted;
     }
 
-    public Boolean getSelectPlayers() {
-        return selectPlayers;
-    }
-
-    public void setSelectPlayers(Boolean selectPlayers) {
-        this.selectPlayers = selectPlayers;
-    }
-
     public ObjectId getGameId() {
         return gameId;
     }
 
     public void setGameId(ObjectId gameId) {
         this.gameId = gameId;
+    }
+
+    public String getChallengedTeamName() {
+        return challengedTeamName;
+    }
+
+    public void setChallengedTeamName(String challengedTeamName) {
+        this.challengedTeamName = challengedTeamName;
+    }
+
+    public String getChallengerTeamName() {
+        return challengerTeamName;
+    }
+
+    public void setChallengerTeamName(String challengerTeamName) {
+        this.challengerTeamName = challengerTeamName;
+    }
+
+    public EventType getStatus() {
+        return status;
+    }
+
+    public void setStatus(EventType status) {
+        this.status = status;
     }
 }

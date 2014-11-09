@@ -1,5 +1,6 @@
 package com.hackfmi.sport.squad.domain;
 
+import com.hackfmi.sport.squad.dto.PlayerPositionDto;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -20,15 +21,20 @@ public class Game {
     private ObjectId id;
     private GameType type = GameType.RANKED;
     private Sport sport = Sport.FOOTBALL;
-    private GameState state;
+    private GameState state = GameState.NEGOTIATION;
 
     private Timestamp startDate;
     private Timestamp creationDate;
 
-    private List<PlayerPosition> playersPositions;
-
+    private List<PlayerPosition> challengerTeamPositions;
+    private List<PlayerPosition> challengedTeamPositions;
     private List<GameInvitation> gameInvitationsForChallengerTeam = new ArrayList<>();
     private List<GameInvitation> gameInvitationsForChallengedTeam = new ArrayList<>();
+
+    private GameScore gameScore;
+
+    private GameScore challengerTeamScoreDeclared;
+    private GameScore challengedTeamScoreDeclared;
 
     @DBRef
     private GameField gameField;
@@ -78,14 +84,6 @@ public class Game {
         this.gameField = gameField;
     }
 
-    public List<PlayerPosition> getPlayersPositions() {
-        return playersPositions;
-    }
-
-    public void setPlayersPositions(List<PlayerPosition> playersPositions) {
-        this.playersPositions = playersPositions;
-    }
-
     public Timestamp getStartDate() {
         return startDate;
     }
@@ -133,5 +131,45 @@ public class Game {
 
     public void setGameInvitationsForChallengedTeam(List<GameInvitation> gameInvitationsForChallengedTeam) {
         this.gameInvitationsForChallengedTeam = gameInvitationsForChallengedTeam;
+    }
+
+    public List<PlayerPosition> getChallengedTeamPositions() {
+        return challengedTeamPositions;
+    }
+
+    public void setChallengedTeamPositions(List<PlayerPosition> challengedTeamPositions) {
+        this.challengedTeamPositions = challengedTeamPositions;
+    }
+
+    public List<PlayerPosition> getChallengerTeamPositions() {
+        return challengerTeamPositions;
+    }
+
+    public void setChallengerTeamPositions(List<PlayerPosition> challengerTeamPositions) {
+        this.challengerTeamPositions = challengerTeamPositions;
+    }
+
+    public GameScore getGameScore() {
+        return gameScore;
+    }
+
+    public void setGameScore(GameScore gameScore) {
+        this.gameScore = gameScore;
+    }
+
+    public GameScore getChallengedTeamScoreDeclared() {
+        return challengedTeamScoreDeclared;
+    }
+
+    public void setChallengedTeamScoreDeclared(GameScore challengedTeamScoreDeclared) {
+        this.challengedTeamScoreDeclared = challengedTeamScoreDeclared;
+    }
+
+    public GameScore getChallengerTeamScoreDeclared() {
+        return challengerTeamScoreDeclared;
+    }
+
+    public void setChallengerTeamScoreDeclared(GameScore challengerTeamScoreDeclared) {
+        this.challengerTeamScoreDeclared = challengerTeamScoreDeclared;
     }
 }

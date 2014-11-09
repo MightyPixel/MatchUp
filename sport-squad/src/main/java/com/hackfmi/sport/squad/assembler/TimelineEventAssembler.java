@@ -25,24 +25,25 @@ public class TimelineEventAssembler extends BaseAssembler<TimelineEvent, Timelin
     protected void convertToDto(TimelineEvent timelineEvent, TimelineEventDto timelineEventDto) {
         timelineEventDto.setAccepted(timelineEvent.getAccepted());
         timelineEventDto.setCreationDate(timelineEvent.getCreationDate());
-        timelineEventDto.setExpireOn(timelineEvent.getExpireOn());
-        timelineEventDto.setExpiring(timelineEvent.isExpiring());
-
+        timelineEventDto.setChallengedTeamName(timelineEvent.getChallengedTeamName());
+        timelineEventDto.setChallengerTeamName(timelineEvent.getChallengerTeamName());
+        timelineEventDto.setStatus(timelineEvent.getStatus());
         timelineEventDto.setGameId(timelineEvent.getGameId().toString());
         
         timelineEventDto.setId(timelineEvent.getId().toString());
         timelineEventDto.setMessage(timelineEvent.getMessage());
         timelineEventDto.setPendingAction(timelineEvent.getPendingAction());
         timelineEventDto.setRecipientId(timelineEvent.getRecipientId().toString());
-        timelineEventDto.setSelectPlayers(timelineEvent.getSelectPlayers());
     }
 
     @Override
     protected void convertToDocument(TimelineEvent timelineEvent, TimelineEventDto timelineEventDto) {
         timelineEvent.setAccepted(timelineEventDto.getAccepted());
         timelineEvent.setCreationDate(timelineEventDto.getCreationDate());
-        timelineEvent.setExpireOn(timelineEventDto.getExpireOn());
-        timelineEvent.setExpiring(timelineEventDto.isExpiring());
+
+        timelineEvent.setChallengedTeamName(timelineEventDto.getChallengedTeamName());
+        timelineEvent.setChallengerTeamName(timelineEventDto.getChallengerTeamName());
+        timelineEvent.setStatus(timelineEventDto.getStatus());
 
         timelineEvent.setGameId(new ObjectId(timelineEventDto.getGameId()));
 
@@ -50,7 +51,6 @@ public class TimelineEventAssembler extends BaseAssembler<TimelineEvent, Timelin
         timelineEvent.setMessage(timelineEventDto.getMessage());
         timelineEvent.setPendingAction(timelineEventDto.getPendingAction());
         timelineEvent.setRecipientId(new ObjectId(timelineEventDto.getRecipientId()));
-        timelineEvent.setSelectPlayers(timelineEventDto.getSelectPlayers());
 
     }
 }

@@ -1,5 +1,6 @@
 package com.hackfmi.sport.squad.dto;
 
+import com.hackfmi.sport.squad.domain.EventType;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -15,16 +16,19 @@ public class TimelineEventDto implements BaseDto {
     private String recipientId;
     private Date creationDate;
 
-    private boolean expiring = false;
-    private Date expireOn;
+//    private boolean expiring = false;
+//    private Date expireOn;
     private String message;
+    private String challengedTeamName;
+    private String challengerTeamName;
+    private EventType status;
 
     private String gameId;
 //    private GameDetailsDto gameDetails;
 
     private Boolean pendingAction = false;
     private Boolean accepted;
-    private Boolean selectPlayers;
+//    private Boolean selectPlayers;
 
     @Override
     public String getId() {
@@ -52,22 +56,6 @@ public class TimelineEventDto implements BaseDto {
         this.creationDate = creationDate;
     }
 
-    public boolean isExpiring() {
-        return expiring;
-    }
-
-    public void setExpiring(boolean expiring) {
-        this.expiring = expiring;
-    }
-
-    public Date getExpireOn() {
-        return expireOn;
-    }
-
-    public void setExpireOn(Date expireOn) {
-        this.expireOn = expireOn;
-    }
-
     public String getMessage() {
         return message;
     }
@@ -92,19 +80,35 @@ public class TimelineEventDto implements BaseDto {
         this.accepted = accepted;
     }
 
-    public Boolean getSelectPlayers() {
-        return selectPlayers;
-    }
-
-    public void setSelectPlayers(Boolean selectPlayers) {
-        this.selectPlayers = selectPlayers;
-    }
-
     public String getGameId() {
         return gameId;
     }
 
     public void setGameId(String gameId) {
         this.gameId = gameId;
+    }
+
+    public String getChallengedTeamName() {
+        return challengedTeamName;
+    }
+
+    public void setChallengedTeamName(String challengedTeamName) {
+        this.challengedTeamName = challengedTeamName;
+    }
+
+    public String getChallengerTeamName() {
+        return challengerTeamName;
+    }
+
+    public void setChallengerTeamName(String challengerTeamName) {
+        this.challengerTeamName = challengerTeamName;
+    }
+
+    public EventType getStatus() {
+        return status;
+    }
+
+    public void setStatus(EventType status) {
+        this.status = status;
     }
 }

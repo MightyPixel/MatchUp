@@ -11,11 +11,11 @@ import com.hackfmi.sport.squad.dto.GameDto;
 public class GameAssembler extends BaseAssembler<Game, GameDto> {
 	
 	@Autowired
-	GameFieldAssembler gameFieldAssembler;
+	private GameFieldAssembler gameFieldAssembler;
 	@Autowired
-	TeamAssembler teamAssembler;
+	private TeamAssembler teamAssembler;
 	@Autowired
-	PlayerPositionAssembler playerPositionAssembler;
+	private PlayerPositionAssembler playerPositionAssembler;
 
 	@Override
 	protected Game createDocument() {
@@ -35,8 +35,9 @@ public class GameAssembler extends BaseAssembler<Game, GameDto> {
 		gameDto.setState(game.getState());
 		gameDto.setStartDate(game.getStartDate());
 		gameDto.setCreationDate(game.getCreationDate());
-		gameDto.setPlayersPositionsDto(playerPositionAssembler.toDtos(game.getPlayersPositions()));
-		gameDto.setGameFieldDto(gameFieldAssembler.toDto(game.getGameField()));
+		gameDto.setChallengedTeamPositionsDto(playerPositionAssembler.toDtos(game.getChallengedTeamPositions()));
+        gameDto.setChallengerTeamPositionsDto(playerPositionAssembler.toDtos(game.getChallengerTeamPositions()));
+        gameDto.setGameFieldDto(gameFieldAssembler.toDto(game.getGameField()));
 		gameDto.setChallengedTeam(teamAssembler.toDto(game.getChallengedTeam()));
         gameDto.setChallengerTeam(teamAssembler.toDto(game.getChallengerTeam()));
 	}
@@ -49,10 +50,14 @@ public class GameAssembler extends BaseAssembler<Game, GameDto> {
 		game.setState(gameDto.getState());
 		game.setStartDate(gameDto.getStartDate());
 		game.setCreationDate(gameDto.getCreationDate());
-		game.setPlayersPositions(playerPositionAssembler.toDocuments(gameDto.getPlayersPositionsDto()));
-		game.setGameField(gameFieldAssembler.toDocument(gameDto.getGameFieldDto()));
+        game.setChallengedTeamPositions(playerPositionAssembler.toDocuments(gameDto.getChallengedTeamPositionsDto()));
+        game.setChallengerTeamPositions(playerPositionAssembler.toDocuments(gameDto.getChallengerTeamPositionsDto()));
+        game.setGameField(gameFieldAssembler.toDocument(gameDto.getGameFieldDto()));
         game.setChallengedTeam(teamAssembler.toDocument(gameDto.getChallengedTeam()));
         game.setChallengerTeam(teamAssembler.toDocument(gameDto.getChallengerTeam()));
 	}
 
+    public PlayerPositionAssembler getPlayerPositionAssembler() {
+        return playerPositionAssembler;
+    }
 }

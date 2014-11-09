@@ -19,8 +19,8 @@ public class GameDto implements BaseDto {
 	private Timestamp startDate;
 	private Timestamp creationDate;
 
-	private List<PlayerPositionDto> playersPositionsDto;
-
+	private List<PlayerPositionDto> challengerTeamPositionsDto;
+    private List<PlayerPositionDto> challengedTeamPositionsDto;
 	private GameFieldDto gameFieldDto;
 
     private TeamDto challengerTeam;
@@ -76,14 +76,6 @@ public class GameDto implements BaseDto {
 		this.creationDate = creationDate;
 	}
 
-	public List<PlayerPositionDto> getPlayersPositionsDto() {
-		return playersPositionsDto;
-	}
-
-	public void setPlayersPositionsDto(List<PlayerPositionDto> playersPositionsDto) {
-		this.playersPositionsDto = playersPositionsDto;
-	}
-
 	public GameFieldDto getGameFieldDto() {
 		return gameFieldDto;
 	}
@@ -106,5 +98,21 @@ public class GameDto implements BaseDto {
 
     public void setChallengedTeam(TeamDto challengedTeam) {
         this.challengedTeam = challengedTeam;
+    }
+
+    public List<PlayerPositionDto> getChallengedTeamPositionsDto() {
+        return challengedTeamPositionsDto;
+    }
+
+    public void setChallengedTeamPositionsDto(List<PlayerPositionDto> challengedTeamPositionsDto) {
+        this.challengedTeamPositionsDto = challengedTeamPositionsDto;
+    }
+
+    public List<PlayerPositionDto> getChallengerTeamPositionsDto() {
+        return challengerTeamPositionsDto;
+    }
+
+    public void setChallengerTeamPositionsDto(List<PlayerPositionDto> challengerTeamPositionsDto) {
+        this.challengerTeamPositionsDto = challengerTeamPositionsDto;
     }
 }
