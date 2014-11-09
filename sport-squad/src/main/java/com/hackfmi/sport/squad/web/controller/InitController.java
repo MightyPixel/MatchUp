@@ -81,17 +81,16 @@ public class InitController {
     
     @RequestMapping(method = RequestMethod.GET, value = "/team")
     public void initTeams() {
+    	leet.setId(new ObjectId());
     	leet.setCaptain(ognyan);
     	leet.setCity("Sofia");
-    	leet.setId(new ObjectId());
     	leet.setName("1337");
     	List <ObjectId> list = Arrays.asList(andreya.getId(), ognyan.getId(), adriana.getId(), ivan.getId());
     	leet.setPlayersIds(list);
     	leet.setRating(12d);
     	leet.setSchedule(new ArrayList<ScheduleInterval>());
     	
-		playerRepository.save(ivan);
-    	
+		teamRepository.save(leet);
     }
     
     @RequestMapping(method = RequestMethod.GET, value = "/event")
