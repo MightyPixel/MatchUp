@@ -38,6 +38,9 @@
             <li ng-class="{ 'active': activeTab == 'create-game' }">
                 <a ng-href="#/create-game" ng-show="isUserLogged" ng-click="setActiveTab('create-game')">Create Game</a>
             </li>
+            <li ng-class="{ 'active': activeTab == 'my-teams' }">
+                <a ng-href="#/my-teams" ng-show="isUserLogged" ng-click="setActiveTab('my-teams')">My Teams</a>
+            </li>
             <li ng-class="{ 'active': activeTab == 'about' }">
                 <a ng-href="#/about"  ng-click="setActiveTab('about')">About</a>
             </li>
