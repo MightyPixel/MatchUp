@@ -19,26 +19,26 @@
 				<div class="col-md-6">
 					<p class="input-group">
 					<div class = "date" style="display:inline-block; min-height:290px;">
-						<datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
+						<datepicker ng-model="startDate" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
 					</div>
 					</p>
 				</div>
 			</div>
 		</div>
 		<div id="time">
-			<timepicker class="time" hour-step="1" minute-step="1" show-meridian="false" ng-model="mytime" ng-change="changed()"></timepicker>
+			<timepicker class="startTime" hour-step="1" minute-step="1" show-meridian="false" ng-model="mytime" ng-change="changed()"></timepicker>
 		</div>
 	</div>
-	
+
 	<div>
 		<h4>The Place:</h4>
-		<input type="text" ng-model="place" typeahead="place for place in places | filter:$viewValue | limitTo:8" class="form-control">
+		<input type="text" ng-model="game.place" typeahead="place.name for place in places | filter:$viewValue | limitTo:8" class="form-control">
 	</div>
 
 	<div>	
 		<h4>The Team:</h4>
 		<select class="form-control game-team">
-		  <option ng-repeat="team in teams">{{team}}</option>
+		  <option ng-repeat="team in teams">{{team.name}}</option>
 		</select>
 	</div>		
 		<br>
@@ -50,21 +50,11 @@
 			<div id="name">{{opponent.name}} -</div>
 			<div id="rank">- Rank: {{opponent.rank}} </div>
 			<br>
-		</div>	
-
-		<h4>The Players:</h4>
-		<div>
-			<img src="../images/football-field.jpg" class="img-responsive" alt="Responsive image">
-		</div>
-		<br>
-		<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><i class="glyphicon glyphicon-user"></i></button>
-		<div collapse="isCollapsed">
-			<input type="text" ng-model="player" typeahead="player for player in players | filter:$viewValue | limitTo:8" class="form-control">
 		</div>
 	</div>
 
 	<br>
 
-	<button type="button" class="btn btn-primary btn-lg">Create Game</button>
+	<button type="button" class="btn btn-primary btn-lg" ng-click="create()">Create Game</button>
 	
 </div>

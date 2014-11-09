@@ -8,6 +8,15 @@ angular.module('matchupApp')
                 headers: {'Content-Type': 'application/json'}
             });
         },
+        getMatchingTeams: function(gameId, eventId, accept) {
+            return $http.get(APP_CONFIG.serviceBaseUrl + 'timeline/find', {
+                params: {
+                    playerId: auth.getPlayerId()
+                }
+            });
+        },
+
+ 
     };
 });
 
