@@ -1,14 +1,19 @@
-<div ng-click="goToGame()">
-    <div class="timeline-heading">
+<div>
+    <div class="timeline-heading" ng-click="goToGame()">
         <h4 class="timeline-title">{{ event.challengerTeamName }}</h4>
         <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{ event.creationDate | date:'dd-MMMM-yyyy HH:mm' }}</small></p>
     </div>
     <div class="timeline-body">
         <p>{{ event.message }}</p>
         <hr>
-        <div class="btn-group response-menu">
+        <div ng-if="event.status=='INVITED'" class="btn-group response-menu">
             <button type="button" class="btn btn-lg btn-success">Accept</button>
             <button type="button" class="btn btn-lg btn-info">Deny</button>
         </div>
+        <div ng-if="event.status=='SCORE'" class="btn-group response-menu">
+            <input type="text" ng-model="gameScore" class="form-control" style="width: 60%;display: inline; float: left;" placeholder="Score the Game">
+            <button type="button" class="btn btn-sl btn-success" style="display:inline" ng-click="score()">Give Score</button>
+        </div>
+
     </div>
 </div>

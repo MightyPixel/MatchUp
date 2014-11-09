@@ -10,7 +10,7 @@
 
 
 angular.module('matchupApp')
-.controller('GameCtrl', function ($scope, gameServiceProxy) {
+.controller('GameCtrl', function ($scope, $location, gameServiceProxy) {
 
     $scope.today = function() {
         $scope.dt = new Date();
@@ -19,6 +19,8 @@ angular.module('matchupApp')
     $scope.mytime = new Date();
     $scope.hstep = 1;
     $scope.mstep = 15;
+
+    $scope.game = {};
 
     $scope.options = {
         hstep: [1, 2, 3],
@@ -94,7 +96,7 @@ angular.module('matchupApp')
 	
 	$scope.opponentTeam = "Opponent Team";
 	$scope.opponents = [
-	{'name':'Some team', 'rank':'12', 'opponentId': '123' },
+	{'name':'THE HATTERS', 'rank':'0', 'opponentId': '123' },
 	{'name': 'The Cobras', 'rank':'37', 'opponentId': '123' },
 	{'name': 'The Stones', 'rank': '98'}
 	];
@@ -109,14 +111,15 @@ angular.module('matchupApp')
     ];
 
     $scope.create = function() {
-        $scope.game.startDate = '1234125';
-        $scope.game.gameFieldId = '123';
-        $scope.game.challengerTeam = '1';
-        $scope.game.challengedTeam = '2';
+        $scope.game.startDate = '1515557966523';
+        $scope.game.gameFieldId = '545f9f5a120d1c734f95cf2e';
+        $scope.game.challengerTeam = '545fa4fb03647959e2edb81d';
+        $scope.game.challengedTeam = '545fb0ffedaf2c80d47b11a5';
 
 
         gameServiceProxy.create($scope.game).then(function(response) {
             console.log(response);
+            $location.url('/game/' + '545fbb6c0364f0d75f80581a');
         });
     }
 

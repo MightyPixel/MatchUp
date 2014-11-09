@@ -7,7 +7,7 @@
  * # timelineItem
  */
 angular.module('matchupApp')
-.directive('timelineItem', function ($location) {
+.directive('timelineItem', function ($location, gameServiceProxy) {
     return {
         scope: {
             event: '='
@@ -19,7 +19,13 @@ angular.module('matchupApp')
         },
         controller: function($scope) {
             $scope.goToGame = function() {
-                $location.url('/game/' + event.id);
+                $location.url('/game/' + $scope.event.id);
+            },
+
+            $scope.score = function() {
+                gameServiceProxy.declareScore($scope.event.gameId, $scope.gameScore).then(function(response) {
+                    console.log(response);
+                });
             }
         }
     };

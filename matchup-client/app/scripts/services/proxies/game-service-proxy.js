@@ -30,7 +30,7 @@ angular.module('matchupApp')
         },
 
         declareScore: function(gameId, score) {
-            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/declare-score', {
+            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/declare-score/' + auth.getPlayerId(), {
                 gameId: gameId,
                 gameScore: score
             });
