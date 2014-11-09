@@ -91,6 +91,12 @@ public class InitController {
     	leet.setSchedule(new ArrayList<ScheduleInterval>());
     	
 		teamRepository.save(leet);
+		
+		leet.setName("2337");
+		leet.setId(new ObjectId());
+		leet.setRating(8d);
+		
+		teamRepository.save(leet);
     }
     
     @RequestMapping(method = RequestMethod.GET, value = "/event")
