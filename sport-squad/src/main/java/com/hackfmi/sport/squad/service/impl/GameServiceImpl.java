@@ -67,9 +67,9 @@ public class GameServiceImpl implements GameService {
         return game;
     }
 
-    private List<TimelineEventDto> listEventsForPlayer(String playerId){
-        Page<GameField> gameFieldPage = gameFieldRepository.findByCity(city, new PageRequest(page, size, sort));
-
-        return null;
-    }
+//    private List<TimelineEventDto> listEventsForPlayer(String playerId){
+//        Page<GameField> gameFieldPage = gameFieldRepository.findByCity(city, new PageRequest(page, size, sort));
+//
+//        return null;
+//    }
 }
