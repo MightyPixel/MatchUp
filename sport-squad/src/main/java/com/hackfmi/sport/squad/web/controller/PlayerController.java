@@ -16,7 +16,7 @@ import com.hackfmi.sport.squad.service.PlayerService;
  */
 
 @RestController
-@RequestMapping("/service")
+@RequestMapping("/service/player")
 public class PlayerController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class PlayerController {
         return new ResponseEntity<List<PlayerDto>>(playerService.findByNameLike(namePattern), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/player/create", consumes = "application/json")
+    @RequestMapping(method = RequestMethod.POST, value = "/create", consumes = "application/json")
     public ResponseEntity<PlayerDto> createPlayer(@RequestBody CreateUserCommand createUserCommand){
         PlayerDto playerDto = playerService.createPlayer(createUserCommand);
         return new ResponseEntity<PlayerDto>(playerDto, HttpStatus.OK);
