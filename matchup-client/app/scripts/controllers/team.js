@@ -23,4 +23,14 @@ angular.module('matchupApp')
 		$scope.playDates.push({});
 	}
 	
-});
+	$scope.removePlayDate = function(playDate) {
+		var index = $scope.playDates.indexOf(playDate);
+		if (index > -1) {
+			 $scope.playDates.splice(index, 1);
+		}
+
+	}
+	
+	
+	
+	});

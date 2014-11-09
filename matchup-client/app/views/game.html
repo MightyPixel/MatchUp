@@ -1,1 +1,70 @@
-<p>This is the game view.</p>
+<div class="game-page" ng-controller="GameCtrl">
+	
+	<div class="row">
+
+	  <div class="col-xs-6">
+		<div type="button" class="btn btn-info game-team" ng-model="team">My Team - {{team}}
+		</div>	
+	  </div>
+	
+	  <div class="col-xs-6">
+		<div class="btn btn-info game-team" ng-model="opponentTeam">Oponent Team - {{opponentTeam}}
+		</div>	
+	  </div>
+	  
+	</div>
+	
+	<br>
+	
+	<div class="row">
+	
+	  <div class="col-xs-6">
+		<div class = "btn game-team" ng-repeat="player in players" ng-class="{ 'btn-success': player.response == 'ACCEPTED','btn-warning': player.response == 'PENDING' ,'btn-danger': player.response == 'DENIED' }">
+
+			<div ng-if="player.response == 'ACCEPTED'">
+				<div id="name" >{{player.name}} accepted.</div>
+			</div>
+			<div ng-if="player.response == 'PENDING'">
+				<div id="name" >{{player.name}} has not accepted yet.</div>
+			</div>
+			<div ng-if="player.response == 'DENIED'">
+				<div id="name" >{{player.name}} declined.</div>
+			</div>
+			
+			<br>
+		</div>	
+	  </div>
+	  
+	  <div class="col-xs-6">
+		<div class = "btn game-team" ng-repeat="opponentPlayer in opponentPlayers" ng-class="{ 'btn-success': opponentPlayer.response == 'ACCEPTED','btn-warning': opponentPlayer.response == 'PENDING' ,'btn-danger': opponentPlayer.response == 'DENIED' }">
+
+		<div ng-if="opponentPlayer.response == 'ACCEPTED'">
+				<div id="name" >{{opponentPlayer.name}} accepted.</div>
+			</div>
+			<div ng-if="opponentPlayer.response == 'PENDING'">
+				<div id="name" >{{opponentPlayer.name}} has not accepted yet.</div>
+			</div>
+			<div ng-if="opponentPlayer.response == 'DENIED'">
+				<div id="name" >{{opponentPlayer.name}} declined.</div>
+			</div>
+			
+			<br>
+		</div>	
+	  </div>
+	 
+	</div>
+	<div>
+		<h4>The Players:</h4>
+		<div>
+			<img src="../images/football-field.jpg" class="img-responsive" alt="Responsive image">
+		</div>
+		
+		<br>
+		
+		<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><i class="glyphicon glyphicon-user"></i></button>
+		
+		<div collapse="isCollapsed">
+			<input type="text" ng-model="player" typeahead="player for player in players | filter:$viewValue | limitTo:8" class="form-control">
+		</div>
+	</div>
+</div>

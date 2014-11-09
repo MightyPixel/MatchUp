@@ -20,9 +20,9 @@
 				  <option>Sunday</option>
 				</select>
 				<timepicker class="time" id="select-time" hour-step="1" minute-step="1" show-meridian="false" ng-model="playDate.time" ng-change="changed()"></timepicker>
-				<button type="button" class="btn btn-success" id="add-button" ng-hide="!playDate" ng-click="addPlayDate(playDate)"><bold>+</bold></button>
-				<button type="button" class="btn btn-success" id="remove-button" ng-hide="playDate" ng-click="addPlayDate(playDate)"><bold>-</bold></button>
-
+				<button type="button" class="btn btn-success" id="add-button" ng-click="addPlayDate(playDate)"><bold>+</bold></button>
+				<button type="button" class="btn btn-success" id="remove-button" ng-click="removePlayDate(playDate)"><bold>-</bold></button>
+				
 			</div>
 
 		</div>

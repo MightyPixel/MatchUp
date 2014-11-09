@@ -37,7 +37,7 @@
 
 	<div>	
 		<h4>The Team:</h4>
-		<select class="form-control">
+		<select class="form-control game-team">
 		  <option ng-repeat="team in teams">{{team}}</option>
 		</select>
 	</div>		
@@ -46,7 +46,7 @@
 	<div>	
 		<h4>The Opponent:</h4>
 
-		<div type="button" class="btn btn-info" ng-click="chooseOponent(opponent)" ng-repeat="opponent in opponents" id="opponent">
+		<div type="button" class="btn" ng-click="chooseOponent(opponent)" ng-class="{'btn-info': opponent != chosenOpponent, 'btn-success': opponent == chosenOpponent}" ng-repeat="opponent in opponents" id="opponent">
 			<div id="name">{{opponent.name}} -</div>
 			<div id="rank">- Rank: {{opponent.rank}} </div>
 			<br>
@@ -58,9 +58,10 @@
 		</div>
 		<br>
 		<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed"><i class="glyphicon glyphicon-user"></i></button>
-			<div collapse="isCollapsed">
+		<div collapse="isCollapsed">
 			<input type="text" ng-model="player" typeahead="player for player in players | filter:$viewValue | limitTo:8" class="form-control">
 		</div>
+	</div>
 
 	<br>
 

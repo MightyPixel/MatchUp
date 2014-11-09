@@ -69,7 +69,7 @@ angular.module('matchupApp')
 	
 	$scope.chosenOpponent;
 	$scope.chooseOponent = function(opponent) {
-		chosenOpponent = opponent;
+		$scope.chosenOpponent = opponent;
 		
 	}
 
@@ -81,16 +81,30 @@ angular.module('matchupApp')
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
 	
+	$scope.team = 'My Team';
 	$scope.teams = ['My awesome team', 'The Penguins', 'Stars', 'Little stars', 'Big Bad wolves'];
+	$scope.players = [
+	{'name':'Ivan Ivanov', 'response': 'DENIED'}, 
+	{'name':'Martin Petrov', 'response': 'PENDING'}, 
+	{'name':'Valeri Nikolov', 'response': 'ACCEPTED'}, 
+	{'name':'Nikolai Stefanov', 'response':'PENDING'}
+	];
+	
+	$scope.opponentTeam = "Opponent Team";
 	$scope.opponents = [
 	{'name':'Some team', 'rank':'12'}, 
 	{'name': 'The Cobras', 'rank':'37'}, 
 	{'name': 'The Stones', 'rank': '98'}
 	];
-  // Any function returning a promise object can be used to load values asynchronously
-  
+	$scope.opponentPlayers = $scope.players;
 	$scope.isCollapsed = true;
-	$scope.players = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
-	$scope.places = ['Sofia', 'Plovdiv', 'Varna', 'Burgas']
+	
+	$scope.places = ['Sofia', 'Plovdiv', 'Varna', 'Burgas'];
+	
+	$scope.changeClass = function(){
+		document.getElementById("MyElement").className = "MyClass";
+	}
+	
+	
 });
 
