@@ -16,5 +16,6 @@ public interface TeamService {
     public List<TeamDto> findByNameLike(String name);
     public List<TeamDto> getTeamsByCity(String city);
     public List<TeamDto> getMatchingTeams(TeamDto teamDto);
+    public List<TeamDto> findTeamsForPlayer(String id);
     
 }

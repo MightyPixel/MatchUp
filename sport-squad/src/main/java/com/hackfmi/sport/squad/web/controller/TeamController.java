@@ -50,6 +50,11 @@ public class TeamController {
     		return new ResponseEntity<List<TeamDto>>(HttpStatus.NOT_FOUND);
     	}
     }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/getTeamsForPlayer", params = {"id"}, produces = "application/json")
+    public ResponseEntity<List<TeamDto>> getTeamsForPlayer(@RequestParam String id) {
+    	return new ResponseEntity<List<TeamDto>>(teamService.findTeamsForPlayer(id), HttpStatus.OK);
+    }
 
     @RequestMapping(method = RequestMethod.POST, value = "/create/{playerId}", consumes = "application/json")
     public ResponseEntity<TeamDto> createTeam(@RequestBody CreateTeamCommand request, @PathVariable String playerId){

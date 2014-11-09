@@ -108,5 +108,9 @@ public class TeamServiceImpl implements TeamService {
 		}
 		return false;
 	}
+	
+	public List<TeamDto> findTeamsForPlayer(String id) {
+		return teamAssembler.toDtos(teamRepository.findByPlayersIdsIn(new ObjectId(id)));
+	}
 
 }

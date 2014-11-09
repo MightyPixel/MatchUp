@@ -16,4 +16,5 @@ public interface TeamRepository extends CrudRepository<Team, ObjectId> {
     List<Team> findByNameLike(String name);
     List<Team> findByCity(String city);
     List<Team> findByCityAndIdNot(String city, ObjectId id);
+    List<Team> findByPlayersIdsIn(ObjectId id);
 }
