@@ -1,5 +1,6 @@
 package com.hackfmi.sport.squad.service.impl;
 
+import com.hackfmi.sport.squad.domain.*;
 import java.sql.Timestamp;
 
 import org.bson.types.ObjectId;
@@ -12,9 +13,15 @@ import com.hackfmi.sport.squad.domain.Team;
 import com.hackfmi.sport.squad.dto.GameDto;
 import com.hackfmi.sport.squad.repository.GameFieldRepository;
 import com.hackfmi.sport.squad.repository.GameRepository;
+import com.hackfmi.sport.squad.repository.PlayerRepository;
 import com.hackfmi.sport.squad.repository.TeamRepository;
 import com.hackfmi.sport.squad.service.GameService;
 import com.hackfmi.sport.squad.web.controller.command.CreateGameCommand;
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.sql.Timestamp;
 
 /**
  * Created by inakov on 14-11-8.
@@ -58,5 +65,11 @@ public class GameServiceImpl implements GameService {
         }
 
         return game;
+    }
+
+    private List<TimelineEventDto> listEventsForPlayer(String playerId){
+        Page<GameField> gameFieldPage = gameFieldRepository.findByCity(city, new PageRequest(page, size, sort));
+
+        return null;
     }
 }
