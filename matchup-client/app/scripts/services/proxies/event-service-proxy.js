@@ -1,24 +1,23 @@
 'use strict';
 
 angular.module('matchupApp')
-.service('eventServiceProxy', function($http, APP_CONFIG) {
+.service('eventServiceProxy', function($http, auth, APP_CONFIG) {
     return {
-        getTimelineEvents: function(id) {
+        getTimelineEvents: function() {
             return $http.get(APP_CONFIG.serviceBaseUrl + 'timeline/find', {
                 params: {
-                    playerId: id
+                    playerId: auth.getPlayerId()
                 }
             });
         },
 
-        invitationResponse: function(game, response) {
-            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/invitation-response', {
-                game: game,
-                response: response
+        invitationResponse: function(gameId, eventId, accept) {
+            return $http.post(APP_CONFIG.serviceBaseUrl + 'game/invitation', {
+                gameId: gameId,
+                eventId: eventId,
+                accept: accept
             });
-        },
-
-// rate game - game, score
+        }
     };
 });
 

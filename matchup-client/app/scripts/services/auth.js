@@ -8,12 +8,17 @@
  * Service in the matchupApp.
  */
 angular.module('matchupApp')
-.service('auth', function auth($q, $rootScope, loginServiceProxy) {
+.service('auth', function auth($q, $rootScope, $cookieStore, loginServiceProxy) {
     var user;
 
     function setUser(newUser) {
-        var oldUser = user;
         user = newUser;
+
+        if (user != null) {
+            $cookieStore.put('playerId', user.id);
+        } else {
+            $cookieStore.remove('playerId');
+        }
 
         notifyObservers(user);
     }
@@ -36,12 +41,12 @@ angular.module('matchupApp')
     }
 
     function isUserLogged() {
-        return !!(user);
+        return !!(user) || $cookieStore.get('playerId');;
     }
 
     return {
         getIsUserLogged: function() { isUserLogged() },
-        setUser: function(user) { setUser(user) },
+        setUser: function(user) { setUser(user); },
 
         loginUser: function(username, password) {
             // return loginServiceProxy.login(username, password).then(updateUserResponse, handleServiceError);
@@ -51,13 +56,10 @@ angular.module('matchupApp')
             });
         },
 
-        getHomeState: function() {
-            if (!isUserLogged()) {
-                return {name: 'login'};
-            } else {
-                return {name: 'unauthorized'};
-            }
+        getPlayerId: function() {
+            return $cookieStore.get('playerId') || user.id;
         },
+
         //register an observer
         registerObserverCallback: function(name, callback){
             if (!_.find(observerCallbacks, { name: name })) {

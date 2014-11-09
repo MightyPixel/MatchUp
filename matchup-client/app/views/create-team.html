@@ -30,11 +30,11 @@
 	
 	<div>	
 		<h4>Add Player:</h4>
-		<input type="text" ng-model="newPlayer" typeahead="player for player in availablePlayers | filter:$viewValue | limitTo:8" class="form-control margins" autofocus placeholder="Player Name"typeahead-on-select="selectPlayer(newPlayer);">
+		<input type="text" ng-model="newPlayer" typeahead="player.name for player in availablePlayers | filter:$viewValue | limitTo:8" class="form-control margins" autofocus placeholder="Player Name"typeahead-on-select="selectPlayer(newPlayer);">
 	</div>
 	
 	<div>	
-		<h4>The Players:</h4>
+		<h4>Selected Players:</h4>
 		
 			<div ng-if="(selectedPlayers.length == 0)">
 				<p>No players were selected.</p>
@@ -46,6 +46,6 @@
 			</div>
 		
 	</div>
-	<button type="button" class="btn btn-primary btn-lg">Create Team</button>
+	<button type="button" class="btn btn-primary btn-lg" ng-click="createTeam()">Create Team</button>
 </div>
 </div>
