@@ -6,7 +6,7 @@ angular.module('matchupApp')
         getTimelineEvents: function() {
             return $http.get(APP_CONFIG.serviceBaseUrl + 'timeline/find', {
                 params: {
-                    playerId: auth.getPlayerId()
+                    playerId: "545f5cb3036401fb88ace161"
                 }
             });
         },

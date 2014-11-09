@@ -83,11 +83,7 @@ angular.module('matchupApp')
 	
 	$scope.team = 'My Team';
 	$scope.teams = [
-        { 'name': 'My awesome team', 'id': 123},
-        { 'name': 'The Penguins', 'id': 124},
-        { 'name': 'Stars', 'id': 125},
-        { 'name': 'Little stars', 'id': 126},
-        { 'name': 'Big Bad wolves', 'id': 127},
+        { 'name': 'The 1337 Team', 'id': '545fa4fb03647959e2edb81d'}
     ];
 	$scope.players = [
 	{'name':'Ivan Ivanov', 'response': 'DENIED'}, 
@@ -107,7 +103,7 @@ angular.module('matchupApp')
 
 	//$scope.players = ['Ivan Ivanov', 'Martin Petrov', 'Valeri Nikolov', 'Nikolai Stefanov'];
 	$scope.places = [
-        { name:'Sofia', gameFieldId: '123'},
+        { name:'Sofia', gameFieldId: '545f9f5a120d1c734f95cf2e'},
         { name: 'Plovdiv', gameFieldId: '124'},
         { name: 'Burgas', gameFieldId: '125'}
     ];
@@ -119,7 +115,7 @@ angular.module('matchupApp')
         $scope.game.challengedTeam = '2';
 
 
-        gameServiceProxy.create(game).then(function(response) {
+        gameServiceProxy.create($scope.game).then(function(response) {
             console.log(response);
         });
     }

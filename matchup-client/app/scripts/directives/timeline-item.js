@@ -7,7 +7,7 @@
  * # timelineItem
  */
 angular.module('matchupApp')
-.directive('timelineItem', function () {
+.directive('timelineItem', function ($location) {
     return {
         scope: {
             event: '='
@@ -18,7 +18,9 @@ angular.module('matchupApp')
 
         },
         controller: function($scope) {
-
+            $scope.goToGame = function() {
+                $location.url('/game/' + event.id);
+            }
         }
     };
 });
