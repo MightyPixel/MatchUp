@@ -30,6 +30,7 @@ public class TeamAssembler extends BaseAssembler<Team, TeamDto> {
 	protected void convertToDto(Team team, TeamDto teamDto) {
 		teamDto.setId(team.getId().toString());
 		teamDto.setName(team.getName());
+		teamDto.setCity(team.getCity());
 		teamDto.setCaptainDto(playerAssembler.toDto(team.getCaptain()));
 		teamDto.setSchedule(team.getSchedule());
 		teamDto.setPlayersIds(objectIdToStringIdList(team.getPlayersIds()));
@@ -40,6 +41,7 @@ public class TeamAssembler extends BaseAssembler<Team, TeamDto> {
 	@Override
 	protected void convertToDocument(Team team, TeamDto teamDto) {
 		team.setId(new ObjectId(teamDto.getId()));
+		team.setName(teamDto.getName());
 		team.setName(teamDto.getName());
 		team.setCaptain(playerAssembler.toDocument(teamDto.getCaptainDto()));
 		team.setSchedule(teamDto.getSchedule());

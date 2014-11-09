@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * Created by inakov on 14-11-8.
  */
 public interface PlayerRepository extends CrudRepository<Player, ObjectId> {
-    Player findByEmail(String email);
+    Player findById(ObjectId id);
     public List<Player> findByNameLike(String namePattern);
 }

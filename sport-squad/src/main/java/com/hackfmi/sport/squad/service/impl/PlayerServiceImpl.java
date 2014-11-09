@@ -8,6 +8,8 @@ import com.hackfmi.sport.squad.dto.PlayerDto;
 import com.hackfmi.sport.squad.repository.PlayerRepository;
 import com.hackfmi.sport.squad.service.PlayerService;
 import com.hackfmi.sport.squad.web.controller.command.CreateUserCommand;
+
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +27,8 @@ public class PlayerServiceImpl implements PlayerService {
     private PlayerAssembler playerAssembler;
 
     @Override
-    public PlayerDto findByEmail(String email) {
-        Player player = playerRepository.findByEmail(email);
-
+    public PlayerDto findById(String id) {
+        Player player = playerRepository.findById(new ObjectId(id));
         return playerAssembler.toDto(player);
     }
 

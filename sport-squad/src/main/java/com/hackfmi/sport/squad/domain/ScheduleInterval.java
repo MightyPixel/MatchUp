@@ -29,4 +29,23 @@ public class ScheduleInterval {
     public void setDaytime(Daytime daytime) {
         this.daytime = daytime;
     }
+
+	public boolean matches(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ScheduleInterval other = (ScheduleInterval) obj;
+		if (this.daytime == Daytime.IRRELEVANT || other.daytime == Daytime.IRRELEVANT) {
+			return (this.dayOfWeek == other.dayOfWeek);
+		}
+		if (dayOfWeek != other.dayOfWeek)
+			return false;
+		if (daytime != other.daytime)
+			return false;
+		return true;
+	}
+    
 }
