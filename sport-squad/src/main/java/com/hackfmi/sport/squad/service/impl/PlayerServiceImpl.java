@@ -28,8 +28,7 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public PlayerDto findById(String id) {
-        Player player = playerRepository.findById(new ObjectId(id));
-        return playerAssembler.toDto(player);
+        return playerAssembler.toDto(playerRepository.findOne(new ObjectId(id)));
     }
 
     @Override

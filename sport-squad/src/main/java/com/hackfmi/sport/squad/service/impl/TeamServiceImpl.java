@@ -36,6 +36,7 @@ public class TeamServiceImpl implements TeamService {
         Team team = new Team();
         team.setId(new ObjectId());
         team.setName(newTeam.getTeamName());
+        team.setCity(newTeam.getCity());
         for(String id : newTeam.getMembersIds()){
             team.getPlayersIds().add(new ObjectId(id));
         }
