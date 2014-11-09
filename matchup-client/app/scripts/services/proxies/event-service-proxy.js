@@ -3,8 +3,12 @@
 angular.module('matchupApp')
 .service('eventServiceProxy', function($http, APP_CONFIG) {
     return {
-        getTimelineEvents: function() {
-            return $http.get(APP_CONFIG.serviceBaseUrl + 'events');
+        getTimelineEvents: function(id) {
+            return $http.get(APP_CONFIG.serviceBaseUrl + 'timeline/find', {
+                params: {
+                    playerId: id
+                }
+            });
         },
 
         invitationResponse: function(game, response) {
