@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.hackfmi.sport.squad.domain.Player;
+import com.hackfmi.sport.squad.repository.PlayerRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,14 +29,18 @@ public class TeamServiceImpl implements TeamService {
 
     @Autowired
     private TeamRepository teamRepository;
+
+    @Autowired
+    private PlayerRepository playerRepository;
     
     @Autowired
     private TeamAssembler teamAssembler;
 
     @Override
-    public TeamDto createTeam(CreateTeamCommand newTeam) {
+    public TeamDto createTeam(CreateTeamCommand newTeam, String playerId) {
+        Player player = playerRepository.findOne(new ObjectId(playerId));
         Team team = new Team();
-        team.setId(new ObjectId());
+        team.setCaptain(player);
         team.setName(newTeam.getTeamName());
         team.setCity(newTeam.getCity());
         for(String id : newTeam.getMembersIds()){
