@@ -40,9 +40,19 @@
 		<select class="form-control">
 		  <option ng-repeat="team in teams">{{team}}</option>
 		</select>
-		
+	</div>		
 		<br>
+		
+	<div>	
+		<h4>The Opponent:</h4>
 
+		<div type="button" class="btn btn-info" ng-click="chooseOponent(opponent)" ng-repeat="opponent in opponents" id="opponent">
+			<div id="name">{{opponent.name}} -</div>
+			<div id="rank">- Rank: {{opponent.rank}} </div>
+			<br>
+		</div>	
+
+		<h4>The Players:</h4>
 		<div>
 			<img src="../images/football-field.jpg" class="img-responsive" alt="Responsive image">
 		</div>
@@ -51,8 +61,6 @@
 			<div collapse="isCollapsed">
 			<input type="text" ng-model="player" typeahead="player for player in players | filter:$viewValue | limitTo:8" class="form-control">
 		</div>
-
-	</div>
 
 	<br>
 

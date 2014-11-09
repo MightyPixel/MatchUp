@@ -66,6 +66,12 @@ angular.module('matchupApp')
 
         $scope.opened = true;
     };
+	
+	$scope.chosenOpponent;
+	$scope.chooseOponent = function(opponent) {
+		chosenOpponent = opponent;
+		
+	}
 
     $scope.dateOptions = {
         formatYear: 'yy',
@@ -76,7 +82,11 @@ angular.module('matchupApp')
     $scope.format = $scope.formats[0];
 	
 	$scope.teams = ['My awesome team', 'The Penguins', 'Stars', 'Little stars', 'Big Bad wolves'];
-	$scope.oponents = ['Some team', 'The Cobras', 'The Stones', 'Flying Monkeys', 'Metallica', 'The Guys'];
+	$scope.opponents = [
+	{'name':'Some team', 'rank':'12'}, 
+	{'name': 'The Cobras', 'rank':'37'}, 
+	{'name': 'The Stones', 'rank': '98'}
+	];
   // Any function returning a promise object can be used to load values asynchronously
   
 	$scope.isCollapsed = true;
